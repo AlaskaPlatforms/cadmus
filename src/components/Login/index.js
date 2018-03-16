@@ -25,7 +25,7 @@ export default class Login extends Component {
   render() {
     return (
       <Form>
-        <FormHeader><i className="valign-wrapper material-icons left">person</i>Login</FormHeader>
+        <FormHeader><i className="valign-wrapper material-icons left">lock</i>Login</FormHeader>
         <InputContainer>
           <input type="text" placeholder="E-mail ou usuário"/>
           <input type="password" placeholder="Senha"/>
