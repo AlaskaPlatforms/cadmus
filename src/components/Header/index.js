@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { HeaderIcon } from './styles'
 
 export default class Header extends Component {
   render() {
@@ -6,7 +7,7 @@ export default class Header extends Component {
       <nav>
         <div className="nav-wrapper blue darken-4">
           <a href="/" className="brand-logo">
-            <i style={{marginLeft: '25px'}}className="material-icons">book</i>
+            <HeaderIcon className="material-icons">book</HeaderIcon>
             Cadmus
           </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
