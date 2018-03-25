@@ -7,8 +7,8 @@ export default class Login extends Component {
       <Form>
         <FormHeader><i className="valign-wrapper material-icons left">lock</i>Login</FormHeader>
         <InputContainer>
-          <input type="text" placeholder="E-mail or username"/>
-          <input type="password" placeholder="Password"/>
+          <input type="text" placeholder="E-mail ou nome de usuário"/>
+          <input type="password" placeholder="Senha"/>
           <button className="btn waves-effect waves-light blue darken-4">Entrar</button>
         </InputContainer>
       </Form> 
