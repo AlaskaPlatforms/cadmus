@@ -11,8 +11,8 @@ export default class Header extends Component {
             Cadmus
           </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li><a>Sign in</a></li>
-            <li><a>Sign up</a></li>
+            <li><a>Entrar</a></li>
+            <li><a>Registre-se</a></li>
           </ul>
         </div>
       </nav>
