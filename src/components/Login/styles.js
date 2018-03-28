@@ -4,7 +4,6 @@ export const Form = styled.div`
   background-color: #f5f5f5;
   max-width: 290px;
   margin: 150px auto 50px;
-  border-radius: 3px;
   box-sizing: border-box;
   transform-origin: center bottom;
   border-radius: 5px;

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Header from '../Header'
 import Login from '../Login'
 import Routes from '../Router'
+import './App.css'
 
 export default class App extends Component {
   render() {
