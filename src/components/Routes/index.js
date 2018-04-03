@@ -16,8 +16,7 @@ class Routes extends Component {
         <div>
           <Switch>
             <Route path='/login' component={ Login } />
-            <PrivateRoute
-              exact
+            <Route
               path='/'
               component={ Home }
             />
@@ -28,6 +27,6 @@ class Routes extends Component {
   }
 }
 
-const mapStateToProps = ({}) => ({});
+const mapStateToProps = ({}) => ({})
 
 export default connect(mapStateToProps)(Routes)
