@@ -2,7 +2,7 @@ import storage from 'redux-persist/es/storage'
 import createHistory from 'history/createBrowserHistory'
 import createSagaMiddleware from 'redux-saga'
 import { routerMiddleware } from 'react-router-redux'
-import { createMigrate, persistStore, persistCombineReducers } from 'redux-persist'
+import { persistStore, persistCombineReducers } from 'redux-persist'
 import { createStore, applyMiddleware, compose } from 'redux'
 
 import sagas from './../sagas'
