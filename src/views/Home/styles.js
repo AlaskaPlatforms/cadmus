@@ -5,7 +5,7 @@ export const Card = styled.div`
   margin: 150px auto;
   height: 500px;
   top: 50%;
-  color: #000;
+  color: #fff;
   text-align: center;
   animation-name: example;
   animation-duration: 2s;
