@@ -4,7 +4,7 @@ import { PersistGate } from 'redux-persist/es/integration/react'
 
 import { configureStore } from '@redux/config/configureStore'
 
-import Routes from '@components/Router'
+import Routes from '@components/Routes'
 
 const { store, persistor } = configureStore()
 

@@ -17,7 +17,6 @@ class Routes extends Component {
           <Switch>
             <Route path='/login' component={ Login } />
             <PrivateRoute
-              authed={ logged }
               exact
               path='/'
               component={ Home }
