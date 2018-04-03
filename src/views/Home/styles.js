@@ -4,8 +4,8 @@ export const Card = styled.div`
   width: 60%;
   margin: 150px auto;
   height: 500px;
-  padding-top: 150px;
-  color: #fff;
+  top: 50%;
+  color: #000;
   text-align: center;
   animation-name: example;
   animation-duration: 2s;
