@@ -1,16 +1,25 @@
 import React, { Component } from 'react'
-import Header from '../Header'
-import Login from '../Login'
-import Routes from '../Router'
-import './App.css'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/es/integration/react'
 
-export default class App extends Component {
-  render() {
+import { configureStore } from '@redux/config/configureStore'
+
+import Routes from '@components/Router'
+
+const { store, persistor } = configureStore()
+
+class App extends Component {
+  render () {
     return (
-      <div>
-        <Header />
-        <Routes />
-      </div>
+      <main>
+        <PersistGate persistor={ persistor }>
+          <Provider store={ store }>
+            <Routes />
+          </Provider>
+        </PersistGate>
+      </main>
     )
   }
 }
+
+export default App
