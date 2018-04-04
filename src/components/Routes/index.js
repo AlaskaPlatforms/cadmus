@@ -8,6 +8,7 @@ import PrivateRoute from '@components/PrivateRoute'
 
 import Login from '@views/Login'
 import Home from '@views/Home'
+import UserPanel from '@views/UserPanel'
 
 class Routes extends Component {
   render () {
@@ -16,7 +17,8 @@ class Routes extends Component {
         <div>
           <Switch>
             <Route path='/login' component={ Login } />
-            <Route path='/' component={ Home } />
+            <Route path='/' component={ UserPanel } />
+            <Route path='/user' component={ UserPanel }/>
           </Switch>
         </div>
       </Router>
