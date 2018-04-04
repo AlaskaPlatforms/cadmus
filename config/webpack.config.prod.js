@@ -98,7 +98,8 @@ module.exports = {
       '@assets': path.resolve(__dirname, '../src/assets'),
       '@components': path.resolve(__dirname, '../src/components'),
       '@views': path.resolve(__dirname, '../src/views'),
-      '@redux': path.resolve(__dirname, '../src/redux')
+      '@redux': path.resolve(__dirname, '../src/redux'),  
+      '@utils': path.resolve(__dirname, '../src/components/utils')  
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
