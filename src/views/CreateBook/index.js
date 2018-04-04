@@ -26,7 +26,7 @@ class CreateBook extends Component {
 
   render() {
     return (
-      <Container className="container white">
+      <Container className="container blue-grey lighten-5">
         <Header className="left-align flow-text blue darken-4">Novo livro</Header>
         {this.renderInputs()}
       </Container>
