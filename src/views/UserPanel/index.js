@@ -1,33 +1,33 @@
 import React, { Component } from 'react'
-import { Form, InputContainer, FormHeader} from './styles'
+import { SideBar, Items , Item, Container, Panel, Header } from './styles'
 
 export default class  UserPanel extends Component {
 
-  renderNavBar() {
-    return (
-      <nav>
-      <div className="nav-wrapper">
-        <a href="#" className="brand-logo">Logo</a>
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li><a href="sass.html">Meus Livros</a></li>
-          <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
-          <ul id = "dropdown" class = "dropdown-content">
-            <li><a href = "#">Inbox<span class = "badge">12</span></a></li>
-            <li><a href = "#!">Unread<span class = "new badge">4</span></a></li>
-            <li><a href = "#">Sent</a></li>
-            <li class = "divider"></li>
-            <li><a href = "#">Outbox<span class = "badge">14</span></a></li>
-          </ul>
-        </ul>
-      </div>
-    </nav>
-    )
-  }
-  
   render(){
+
     return (
       <div>
-        {this.renderNavBar()}
+        <SideBar className="z-depth-2">
+          <Items>
+            <Item className="nav-link tooltiped">
+              Informacoes de usuario
+            </Item>
+            <Item>
+              Configuracoes de usuario
+            </Item>
+          </Items>
+        </SideBar>
+
+        <Container className="blue-grey lighten-5">
+        <Header>Informacoes do usuario</Header>
+          <Panel>
+           
+            <form action="">
+              <label htmlFor="username">Nome de usuario:</label>
+              <input type="text" placeholder="Nome de usuario" name="username" />
+            </form>
+          </Panel>
+        </Container>
       </div>
     )
   }
