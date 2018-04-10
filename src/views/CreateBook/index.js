@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Input from '@utils/form/Input'
-import { Form, Header, Container, ButtonContainer } from './styles'
+import { Form, Header, Container, ButtonContainer, Button } from './styles'
 
 class CreateBook extends Component {
   constructor(props) {
@@ -50,8 +50,8 @@ class CreateBook extends Component {
           </div>
         </div>
         <ButtonContainer>
-          <button className="btn right">Salvar</button>
-          <button className="btn right ">Cancelar</button>
+          <Button className="btn right blue darken-4">Salvar</Button>
+          <Button style={{color: '#0d47a1'}}className="btn-flat right transparent">Cancelar</Button>
         </ButtonContainer>
       </Form>
     )
@@ -59,7 +59,7 @@ class CreateBook extends Component {
 
   render() {
     return (
-      <Container className="container blue-grey lighten-5">
+      <Container className="blue-grey lighten-5">
         <Header className="left-align flow-text blue darken-4">Novo livro</Header>
         {this.renderInputs()}
       </Container>

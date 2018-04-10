@@ -14,8 +14,13 @@ export const Container = styled.div`
   z-index: 1;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
+  width: 60%;
+  margin: 15px auto;
 `
 export const ButtonContainer = styled.div`
   display: inline-block;
   width: 100%;
+`
+export const Button = styled.button`
+  text-transform: capitalize !important;
 `
