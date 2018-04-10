@@ -72,28 +72,51 @@ export default class TextInput extends Component {
 }
 */
 
+/*
+import React, { Component } from 'react'
 
+export default class Input extends Component {
+  render() {
+    return (
+      <div className='row'>
+        <div className='input-field col s6'>
+          <input {...this.props.input}
+            name={this.props.name}
+            value={this.props.value}
+            id={this.props.id}
+            type={this.props.type}
+            className='validate'
+            readOnly={this.props.readOnly}
+            placeholder={this.props.placeholder}
+            />
 
+          <label {...this.props.label}
+            htmlFor={this.props.name}>
+          {this.props.placeholder}
+          </label>
+        </div>
+      </div>
+    )
+  }
+}
+*/
 
 import React from 'react'
 
 export default props => (
-  <div className='row'>
-    <div className='input-field col s6'>
-      <input {...props.input}
-        value={props.value}
-        id={props.id}
-        type={props.type}
-        className='validate'
-        readOnly={props.readOnly}
-        placeholder={props.placeholder}
-        />
+  <div className={`input-field ${props.cols}`}>
+    <input {...props.input}
+      id={props.id}
+      type={props.type}
+      className='validate'
+      name={props.name}
+      readOnly={props.readOnly}
+      value={props.value}
+      />
 
-      <label {...props.label}
-        className={props.value ? 'active' : ''}
-        for={props.for}>
-      {props.caption}
-      </label>
-    </div>
+    <label {...props.label}
+      htmlFor={props.name}>
+    {props.name}
+    </label>
   </div>
 )
