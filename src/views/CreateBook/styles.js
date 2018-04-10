@@ -15,3 +15,7 @@ export const Container = styled.div`
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
 `
+export const ButtonContainer = styled.div`
+  display: inline-block;
+  width: 100%;
+`
