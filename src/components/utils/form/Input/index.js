@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default props => (
-  <input {...props.input}
-    className='form-control'
-    placeholder={props.placeholder}
-    readOnly={props.readOnly}
-    type={props.type} />
-)
+class Input extends Component {
+  render() {
+    const { placeholder, type, readOnly, input } = this.props
+    return (
+      <div className="input-field">
+        <label htmlFor={placeholder}>{placeholder}</label>
+        <input {...input}
+          name={placeholder}
+          readOnly={readOnly}
+          type={type} />
+      </div>
+    )
+  }
+}
+export default Input
