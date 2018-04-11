@@ -1,0 +1,10 @@
+.logo-name {
+  display: flex;
+  flex-direction: row;
+  
+  @for $n from (6)*-1 through -1 {
+    span:nth-child(#{abs($n)}) {
+      animation-delay: $n * 0.1s + 3s, abs($n) * 0.1s + 3s
+    }
+  }
+}
