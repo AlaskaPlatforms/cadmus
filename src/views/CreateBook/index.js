@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Input from '@utils/form/Input'
+import Input from '@utils/form/Input'g
 import { Form, Header, Container, ButtonContainer, Button } from './styles'
 
 class CreateBook extends Component {
@@ -32,21 +32,18 @@ class CreateBook extends Component {
     return (
       <Form>
         <div className="row">
-          <div className="col s12 l8 input-field">
-            <Input label='Titulo' name='title' type="text" value={ title }/>
-          </div>
-          <div className="col s12 l4 input-field">
-            <Input label='Genero' name='genre' type="text" value={ genres } onChange={ this.handleChangeGenre }/>
-          </div>
+          <Input cols='col s12 l8' label='Titulo' name='title' type="text" value={ title } onChange={ this.handleChangeTitle }/>
+          <Input cols='col s12 l4' label='Gênero' name='genre' type="text" value={ genres } onChange={ this.handleChangeGenre }/>
         </div>
         <div className="row">
           <div className="col s12 input-field">
             <textarea className="materialize-textarea"
               type="text" 
-              placeholder="Descrição"
+              name='description'
               value={ description }
               onChange={ this.handleChangeDescription }
             ></textarea>
+            <label htmlFor='description'>Descrição</label>
           </div>
         </div>
         <ButtonContainer>
