@@ -9,6 +9,7 @@ export default props => (
       readOnly={props.readOnly}
       value={props.value}
       onChange={props.onChange}
+      className='materialize-textarea' 
       >
     </textarea>  
 
