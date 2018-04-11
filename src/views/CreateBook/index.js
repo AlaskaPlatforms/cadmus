@@ -33,10 +33,10 @@ class CreateBook extends Component {
       <Form>
         <div className="row">
           <div className="col s12 l8 input-field">
-            <Input name='titulo' type="text" value={ title }/>
+            <Input label='Titulo' name='title' type="text" value={ title }/>
           </div>
           <div className="col s12 l4 input-field">
-            <Input name='genero' type="text" value={ genres } onChange={ this.handleChangeGenre }/>
+            <Input label='Genero' name='genre' type="text" value={ genres } onChange={ this.handleChangeGenre }/>
           </div>
         </div>
         <div className="row">
