@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { SideBar, Items , Item, Container, Panel, Header, UserIcon } from './styles'
+import Input from '@utils/form/Input'
+import TextArea from '@utils/form/TextArea'
 
 export default class  UserPanel extends Component {
 
@@ -26,12 +28,9 @@ export default class  UserPanel extends Component {
         <Header>Informacoes do usuario</Header>
           <Panel>
             <form action="">
-              <label htmlFor="usernickname">Nome de usuario:</label>
-              <input type="text" placeholder="Nome de usuario" name="usernickname" />
-              <label htmlFor="username">Nome:</label>
-              <input type="text" placeholder="Nome" name = "username"/>
-              <label htmlFor="userbirth">Data de nascimento</label>
-              <input type="date" placeholder="Data de nascimento" name ="userbirth"/>
+              <Input type="text" placeholder="Nome de usuario" name="usernickname" />
+              <Input type="text" placeholder="Nome" name = "username"/>
+              <Input type="date" placeholder="Data de nascimento" name ="userbirth"/>
             </form>
           </Panel>
         </Container>
