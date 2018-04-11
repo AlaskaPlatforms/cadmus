@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 export default props => (
   <div className={`input-field ${props.cols}`}>
-    <input {...props.input}
+    <input 
       id={props.id}
       type={props.type}
       name={props.name}
@@ -11,7 +11,7 @@ export default props => (
       onChange={props.onChange}
       />
 
-    <label {...props.label}
+    <label
       htmlFor={props.name}>
     {props.label}
     </label>
