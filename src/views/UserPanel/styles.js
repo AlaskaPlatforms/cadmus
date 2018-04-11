@@ -45,3 +45,12 @@ export const Panel = styled.div`
 export const Header = styled.h4`
   margin: 0 0 15px 0;
 `
+
+export const UserIcon = styled.div`
+  margin-left: 95%;
+  padding: 0;
+  display: ;
+  &:hover {
+    
+  }
+`
