@@ -9,6 +9,7 @@ import PrivateRoute from '@components/PrivateRoute'
 import Login from '@views/Login'
 import Home from '@views/Home'
 import UserPanel from '@views/UserPanel'
+import CreateBook from '@views/CreateBook'
 
 class Routes extends Component {
   render () {
@@ -19,6 +20,8 @@ class Routes extends Component {
             <Route path='/login' component={ Login } />
             <Route path='/' component={ UserPanel } />
             <Route path='/user' component={ UserPanel }/>
+            <Route exact path='/' component={ Home } />
+            <Route path='/new-book' component={ CreateBook } />
           </Switch>
         </div>
       </Router>
