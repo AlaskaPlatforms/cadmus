@@ -6,8 +6,6 @@ import { configureStore } from '@redux/config/configureStore'
 
 import Routes from '@components/Routes'
 
-import './App.css'
-
 const { store, persistor } = configureStore()
 
 class App extends Component {
