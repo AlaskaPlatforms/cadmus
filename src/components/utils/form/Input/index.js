@@ -5,7 +5,6 @@ export default props => (
     <input {...props.input}
       id={props.id}
       type={props.type}
-      className='validate'
       name={props.name}
       readOnly={props.readOnly}
       value={props.value}
