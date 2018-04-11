@@ -9,11 +9,12 @@ export default props => (
       name={props.name}
       readOnly={props.readOnly}
       value={props.value}
+      onChange={props.onChange}
       />
 
     <label {...props.label}
       htmlFor={props.name}>
-    {props.name}
+    {props.label}
     </label>
   </div>
 )
