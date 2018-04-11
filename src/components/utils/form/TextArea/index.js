@@ -2,7 +2,7 @@ import React from 'react'
 
 export default props => (
   <div className={`input-field ${props.cols}`}>
-    <textarea {...props.textarea}
+    <textarea
       id={props.id}
       type={props.type}
       name={props.name}
@@ -13,7 +13,7 @@ export default props => (
       >
     </textarea>  
 
-    <label {...props.label}
+    <label
       htmlFor={props.name}>
     {props.label}
     </label>

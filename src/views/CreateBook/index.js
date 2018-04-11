@@ -38,11 +38,13 @@ class CreateBook extends Component {
         </div>
         <div className="row">
           <TextArea
-            type="text" 
+            type='text'
+            cols='col s12'
             name='description'
             value={ description }
+            label='Descrição'
             onChange={ this.handleChangeDescription }
-          ></TextArea>
+          />
         </div>
         <ButtonContainer>
           <Button className="btn right blue darken-4">Salvar</Button>
