@@ -48,7 +48,7 @@ class CreateBook extends Component {
         </div>
         <ButtonContainer>
           <Button className="btn right blue darken-4">Salvar</Button>
-          <Button style={{color: '#0d47a1'}}className="btn-flat right transparent">Cancelar</Button>
+          <Button style={{color: '#0d47a1'}} className="btn-flat right transparent">Cancelar</Button>
         </ButtonContainer>
       </Form>
     )
