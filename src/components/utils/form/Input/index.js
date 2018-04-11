@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
 
-class Input extends Component {
-  render() {
-    const { placeholder, type, readOnly, input } = this.props
-    return (
-      <div className="input-field">
-        <label htmlFor={placeholder}>{placeholder}</label>
-        <input {...input}
-          name={placeholder}
-          readOnly={readOnly}
-          type={type} />
-      </div>
-    )
-  }
-}
-export default Input
+export default props => (
+  <div className={`input-field ${props.cols}`}>
+    <input {...props.input}
+      id={props.id}
+      type={props.type}
+      className='validate'
+      name={props.name}
+      readOnly={props.readOnly}
+      value={props.value}
+      onChange={props.onChange}
+      />
+
+    <label {...props.label}
+      htmlFor={props.name}>
+    {props.label}
+    </label>
+  </div>
+)
