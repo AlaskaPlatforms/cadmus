@@ -12,18 +12,18 @@ class CreateBook extends Component {
     }
   }
   
-  handleChangeTitle = (event) => {
-    const { value } = event.target
+  handleChangeTitle = ({ target }) => {
+    const { value } = target
     this.setState({ title: value })
   }
 
-  handleChangeGenre = (event) => {
-    const { value } = event.target
+  handleChangeGenre = ({ target }) => {
+    const { value } = target
     this.setState({ genres: value })
   }
 
-  handleChangeDescription = (event) => {
-    const { value } = event.target
+  handleChangeDescription = ({ target }) => {
+    const { value } = target
     this.setState({ description: value })
   }
 
@@ -33,10 +33,12 @@ class CreateBook extends Component {
       <Form>
         <div className="row">
           <div className="col s12 l8 input-field">
-            <input type="text" placeholder="Titulo" value={title} onChange={ this.handleChangeTitle }/>
+            <input type="text" placeholder="Titulo" value={ title } onChange={ this.handleChangeTitle }/>
           </div>
           <div className="col s12 l4 input-field">
-            <input type="text" placeholder="Generos" value={ genres } onChange={ this.handleChangeGenre }/>
+            <select>
+              <option value="">zika</option>
+            </select>
           </div>
         </div>
         <div className="row">
@@ -51,7 +53,7 @@ class CreateBook extends Component {
         </div>
         <ButtonContainer>
           <Button className="btn right blue darken-4">Salvar</Button>
-          <Button style={{color: '#0d47a1'}}className="btn-flat right transparent">Cancelar</Button>
+          <Button style={{ color: '#0d47a1' }} className="btn-flat right transparent">Cancelar</Button>
         </ButtonContainer>
       </Form>
     )
