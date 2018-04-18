@@ -15,9 +15,6 @@ export default class  UserPanel extends Component {
             <Item className='nav-link tooltiped'>
               Informacoes de usuario
             </Item>
-            <Item>
-              Configuracoes de usuario
-            </Item>
           </Items>
         </SideBar>
 
