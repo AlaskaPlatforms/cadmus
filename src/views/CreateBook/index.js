@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Input from '@utils/form/Input'
+import TextArea from '@utils/form/TextArea'
 import { Form, Header, Container, ButtonContainer, Button } from './styles'
 
 class CreateBook extends Component {
@@ -32,26 +33,22 @@ class CreateBook extends Component {
     return (
       <Form>
         <div className="row">
-          <div className="col s12 l8 input-field">
-            <input type="text" placeholder="Titulo" value={title} onChange={ this.handleChangeTitle }/>
-          </div>
-          <div className="col s12 l4 input-field">
-            <input type="text" placeholder="Generos" value={ genres } onChange={ this.handleChangeGenre }/>
-          </div>
+          <Input cols='col s12 l8' label='Titulo' name='title' type="text" value={ title } onChange={ this.handleChangeTitle }/>
+          <Input cols='col s12 l4' label='Gênero' name='genre' type="text" value={ genres } onChange={ this.handleChangeGenre }/>
         </div>
         <div className="row">
-          <div className="col s12 input-field">
-            <textarea className="materialize-textarea"
-              type="text" 
-              placeholder="Descrição"
-              value={ description }
-              onChange={ this.handleChangeDescription }
-            ></textarea>
-          </div>
+          <TextArea
+            type='text'
+            cols='col s12'
+            name='description'
+            value={ description }
+            label='Descrição'
+            onChange={ this.handleChangeDescription }
+          />
         </div>
         <ButtonContainer>
           <Button className="btn right blue darken-4">Salvar</Button>
-          <Button style={{color: '#0d47a1'}}className="btn-flat right transparent">Cancelar</Button>
+          <Button style={{color: '#0d47a1'}} className="btn-flat right transparent">Cancelar</Button>
         </ButtonContainer>
       </Form>
     )
