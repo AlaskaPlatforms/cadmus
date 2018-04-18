@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import Input from '@utils/form/Input'
+import Grid from 'material-ui/Grid'
+import TextField from 'material-ui/TextField'
+import Select from 'material-ui/Select'
+import { MenuItem } from 'material-ui/Menu'
 import { Form, Header, Container, ButtonContainer, Button } from './styles'
 
 class CreateBook extends Component {
@@ -31,24 +35,24 @@ class CreateBook extends Component {
     const { title, genres, description } = this.state
     return (
       <Form>
-        <div className="row">
-          <div className="col s12 l8 input-field">
-            <input type="text" placeholder="Titulo" value={ title } onChange={ this.handleChangeTitle }/>
-          </div>
-          <div className="col s12 l4 input-field">
-            <select>
-              <option value="">zika</option>
-            </select>
-          </div>
-        </div>
+        <Grid container>
+        <Grid item xs={12} l={8}>
+          <TextField fullWidth
+              label="Titulo" onChange={ this.handleChangeTitle }/>
+        </Grid>
+          <Grid item item xs={12} l={4}>
+            <Select value='1'>
+              <MenuItem value='1'>Terror</MenuItem>
+            </Select>
+          </Grid>
+        </Grid>
         <div className="row">
           <div className="col s12 input-field">
-            <textarea className="materialize-textarea"
-              type="text" 
-              placeholder="Descrição"
-              value={ description }
+            <TextField
+              label="Descrição"
+              multiline
               onChange={ this.handleChangeDescription }
-            ></textarea>
+            />
           </div>
         </div>
         <ButtonContainer>
