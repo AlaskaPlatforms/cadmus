@@ -3,8 +3,9 @@ import Input from '@utils/form/Input'
 import Grid from 'material-ui/Grid'
 import TextField from 'material-ui/TextField'
 import Select from 'material-ui/Select'
+import Button from 'material-ui/Button'
 import { MenuItem } from 'material-ui/Menu'
-import { Form, Header, Container, ButtonContainer, Button } from './styles'
+import { Form, Header, Container, ButtonContainer } from './styles'
 
 class CreateBook extends Component {
   constructor(props) {
@@ -35,29 +36,30 @@ class CreateBook extends Component {
     const { title, genres, description } = this.state
     return (
       <Form>
-        <Grid container>
-        <Grid item xs={12} l={8}>
+        <Grid container spacing={24}>
+        <Grid item xs={12} lg={8}>
           <TextField fullWidth
               label="Titulo" onChange={ this.handleChangeTitle }/>
         </Grid>
-          <Grid item item xs={12} l={4}>
-            <Select value='1'>
+          <Grid item style={{ paddingTop: '28px '}} xs={12} lg={4}>
+            <Select fullWidth value='1'>
               <MenuItem value='1'>Terror</MenuItem>
             </Select>
           </Grid>
         </Grid>
-        <div className="row">
-          <div className="col s12 input-field">
+        <Grid container spacing={24}>
+          <Grid item xs={12}>
             <TextField
               label="Descrição"
               multiline
+              fullWidth
               onChange={ this.handleChangeDescription }
             />
-          </div>
-        </div>
+          </Grid>
+        </Grid>
         <ButtonContainer>
-          <Button className="btn right blue darken-4">Salvar</Button>
-          <Button style={{ color: '#0d47a1' }} className="btn-flat right transparent">Cancelar</Button>
+          <Button style={{float: 'right', margin: '15px'}} variant="flat">Salvar</Button>
+          <Button style={{float: 'right', margin: '15px'}} variant="flat">Cancelar</Button>
         </ButtonContainer>
       </Form>
     )

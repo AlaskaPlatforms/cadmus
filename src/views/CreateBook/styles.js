@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 export const Form = styled.form`
   top: 0;
-  padding: 15px
+  padding: 15px;
+  color: #fff;
 `
 export const Header = styled.h1`
   padding: 15px;
@@ -16,6 +17,7 @@ export const Container = styled.div`
   border-radius: 5px;
   width: 60%;
   margin: 15px auto;
+  color: #fff;
 `
 export const ButtonContainer = styled.div`
   display: inline-block;
