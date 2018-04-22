@@ -8,6 +8,7 @@ export const Form = styled.form`
 export const Header = styled.h1`
   padding: 15px;
   color: #fff;
+  background-color: #0d47a1;
   border-radius: 5px 5px 0 0;
   margin: 0;
 `
@@ -17,7 +18,7 @@ export const Container = styled.div`
   border-radius: 5px;
   width: 60%;
   margin: 15px auto;
-  color: #fff;
+  background-color: #fff;
 `
 export const ButtonContainer = styled.div`
   display: inline-block;

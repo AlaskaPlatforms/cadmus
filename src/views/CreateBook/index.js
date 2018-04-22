@@ -58,8 +58,8 @@ class CreateBook extends Component {
           </Grid>
         </Grid>
         <ButtonContainer>
-          <Button style={{float: 'right', margin: '15px'}} variant="flat">Salvar</Button>
-          <Button style={{float: 'right', margin: '15px'}} variant="flat">Cancelar</Button>
+          <Button style={{ float: 'right', margin: '15px' }} variant="flat">Salvar</Button>
+          <Button style={{ float: 'right', margin: '15px' }} variant="flat">Cancelar</Button>
         </ButtonContainer>
       </Form>
     )
