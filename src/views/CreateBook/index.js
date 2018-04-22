@@ -24,7 +24,6 @@ class CreateBook extends Component {
 
   handleChangeGenre = ({ target }) => {
     const { value } = target
-    console.log(target)
     this.setState({ genres: value })
   }
 
@@ -48,7 +47,7 @@ class CreateBook extends Component {
               label="Titulo" onChange={ this.handleChangeTitle }/>
         </Grid>
           <Grid item style={{ paddingTop: '28px '}} xs={12} lg={4}>
-            <Select onChange={ this.handleChangeGenre } fullWidth value='1'>
+            <Select label="Genero" onChange={ this.handleChangeGenre } fullWidth value={ genres }>
               <MenuItem value='1'>Terror</MenuItem>
             </Select>
           </Grid>
