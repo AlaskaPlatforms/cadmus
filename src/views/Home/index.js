@@ -6,7 +6,7 @@ export default class Home extends Component {
     return (
       <Card>
         <div>
-          <Text className="row center"><i className="material-icons large">book</i>Cadmus</Text>
+          <Text className="row center"><i className="material-icons large">book</i>Cadmus</Text>   
         </div>
       </Card>
     )

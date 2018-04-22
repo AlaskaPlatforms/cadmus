@@ -1,15 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 export default props => (
   <div className={`input-field ${props.cols}`}>
-    <input 
+    <textarea
       id={props.id}
       type={props.type}
       name={props.name}
       readOnly={props.readOnly}
       value={props.value}
       onChange={props.onChange}
-      />
+      className='materialize-textarea' 
+      >
+    </textarea>  
 
     <label
       htmlFor={props.name}>
