@@ -24,6 +24,7 @@ class CreateBook extends Component {
 
   handleChangeGenre = ({ target }) => {
     const { value } = target
+    console.log(target)
     this.setState({ genres: value })
   }
 
@@ -32,17 +33,22 @@ class CreateBook extends Component {
     this.setState({ description: value })
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(this.state)
+  }
+
   renderInputs() {
     const { title, genres, description } = this.state
     return (
-      <Form>
-        <Grid container spacing={24}>
-        <Grid item xs={12} lg={8}>
+      <Form onSubmit={ this.handleSubmit }>
+        <Grid container spacing={ 24 }>
+        <Grid item xs={ 12 } lg={ 8 }>
           <TextField fullWidth
               label="Titulo" onChange={ this.handleChangeTitle }/>
         </Grid>
           <Grid item style={{ paddingTop: '28px '}} xs={12} lg={4}>
-            <Select fullWidth value='1'>
+            <Select onChange={ this.handleChangeGenre } fullWidth value='1'>
               <MenuItem value='1'>Terror</MenuItem>
             </Select>
           </Grid>
@@ -58,7 +64,7 @@ class CreateBook extends Component {
           </Grid>
         </Grid>
         <ButtonContainer>
-          <Button style={{ float: 'right', margin: '15px' }} variant="flat">Salvar</Button>
+          <Button type='submit' style={{ float: 'right', margin: '15px' }} variant="flat">Salvar</Button>
           <Button style={{ float: 'right', margin: '15px' }} variant="flat">Cancelar</Button>
         </ButtonContainer>
       </Form>
