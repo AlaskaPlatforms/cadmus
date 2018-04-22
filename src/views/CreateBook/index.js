@@ -34,7 +34,6 @@ class CreateBook extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state)
   }
 
   renderInputs() {
