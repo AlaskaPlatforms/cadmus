@@ -1,4 +1,5 @@
 import { call, put } from 'redux-saga/effects'
+
 import { Creators } from '../actions'
 
 export function* authUser (api, { email, password }) {
@@ -6,6 +7,7 @@ export function* authUser (api, { email, password }) {
     const { headers: { authorization }, ok } = yield call(api.authUser, { email, password })
     if (ok) {
       yield put(Creators.authSuccess(authorization))
+      yield put(window.location.href = '/')
     } else {
       yield put(Creators.authFailure('Falha ao autenticar'))
     }
