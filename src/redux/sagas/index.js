@@ -1,7 +1,7 @@
 import { takeLatest } from 'redux-saga/effects'
 
 import authUser from './auth'
-import { addBook } from './BookSagas'
+import { addBook } from './book'
 import { Types } from './../actions'
 
 import API from '@/services/API'
