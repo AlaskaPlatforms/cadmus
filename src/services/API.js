@@ -9,13 +9,14 @@ const create = (baseURL = config.apiURL) => {
   })
 
   const checkApiStatus = () => api.get('/')
-  const authUser = ({ email, password }) => api.post(`${baseURL}/api/v1/auth`, { email, password }).then(response => response)
-  const addBook = ({ book: { title, description } }) => api.post(`${baseURL}/api/v1/book`, { title, description })
-
+  const authUser = ({ email, password }) => api.post(`api/v1/auth`, { email, password }).then(response => response)
+  const addBook = ({ book: { title, description } }) => api.post(`api/v1/book`, { title, description })
+  const registerUser = ({ email, username, password }) => api.post(`api/v1/signup`, { email, username, password })
   return {
     checkApiStatus,
     authUser,
-    addBook
+    addBook,
+    registerUser
   }
 }
 
