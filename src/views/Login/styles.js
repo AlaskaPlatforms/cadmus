@@ -1,7 +1,15 @@
 import styled from 'styled-components'
 
 import COLORS from '@assets/theme/colors'
-import { fromBlackToBlue, disappear, logoSlideMobile, logoSlideMedium, logoSlideXMedium, logoSlideLarge } from '@assets/theme/animations'
+import {
+  fromBlackToBlue,
+  disappear,
+  logoSlideMobile,
+  logoSlideMedium,
+  logoSlideXMedium,
+  logoSlideLarge,
+  appearAndSlideDown
+} from '@assets/theme/animations'
 
 const { WHITE } = COLORS
 
@@ -66,6 +74,57 @@ export const LogoLetter = styled.span`
   animation-fill-mode: forwards, forwards;
 `
 
-export const LoginFormContainer = styled.div`
+export const FormRelativeContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: ${appearAndSlideDown} .5s 6s ease forwards;
+`
 
+export const LoginFormContainer = styled.div`
+  position: absolute;
+  top: 125px;
+  width: calc(100% - 30px);
+  left: 15px;
+
+  @media (min-width: 768px) {
+    top: 50%;
+    width: 235px;
+    left: auto;
+    right: 15px;
+    transform: translateY(-50%);
+  }
+
+  @media (min-width: 840px) {
+    width: 290px;
+  }
+
+  @media (min-width: 1024px) {
+    right: 30px;
+  }
+`
+
+export const RegisterFormContainer = styled.div`
+  position: absolute;
+  top: 100px;
+  width: calc(100% - 30px);
+  left: 15px;
+  opacity: 0;
+
+  @media (min-width: 768px) {
+    top: 50%;
+    width: 235px;
+    left: auto;
+    right: 15px;
+    transform: translateY(-50%);
+  }
+
+  @media (min-width: 840px) {
+    width: 290px;
+  }
+
+  @media (min-width: 1024px) {
+    right: 30px;
+  }
 `
