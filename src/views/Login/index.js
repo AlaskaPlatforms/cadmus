@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 
-import Logo from '@components/utils/icons/Logo'
+import Grid from 'material-ui/Grid'
+import TextField from 'material-ui/TextField'
+import Logo from '@utils/icons/Logo'
 
 import './styles.scss'
 
-import { Container, InnerContainer, LogoContainer, LogoName, LogoLetter } from './styles'
+import { Container, InnerContainer, LogoContainer, LogoLetter, LoginFormContainer } from './styles'
 
 class Login extends Component {
   render () {
@@ -23,6 +25,9 @@ class Login extends Component {
               <LogoLetter>S</LogoLetter>
             </div>
           </LogoContainer>
+          <LoginFormContainer>
+
+          </LoginFormContainer>
         </InnerContainer>
       </Container>
     )

@@ -65,3 +65,7 @@ export const LogoLetter = styled.span`
   animation-direction: normal, normal;
   animation-fill-mode: forwards, forwards;
 `
+
+export const LoginFormContainer = styled.div`
+
+`
