@@ -11,7 +11,6 @@ const create = (baseURL = config.apiURL) => {
   const checkApiStatus = () => api.get('/')
   const authUser = ({ userName, password }) => api.post(`${baseURL}/loginService/loginMobile`, { userName, password }).then(response => response)
   const addBook = ({ book }) => {
-    console.log('api', book)
     return api.post(`${baseURL}/api/v1/book`, { title: book.title, description: book.description })
   }
   
