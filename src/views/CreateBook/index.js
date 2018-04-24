@@ -23,18 +23,15 @@ class CreateBook extends Component {
     }
   }
 
-  handleChangeTitle = ({ target }) => {
-    const { value } = target
+  handleChangeTitle = ({ target: { value } }) => {
     this.setState({ title: value })
   }
 
-  handleChangeGenre = ({ target }) => {
-    const { value } = target
+  handleChangeGenre = ({ target: { value } }) => {
     this.setState({ genres: value })
   }
 
-  handleChangeDescription = ({ target }) => {
-    const { value } = target
+  handleChangeDescription = ({ target: { value } }) => {
     this.setState({ description: value })
   }
 
