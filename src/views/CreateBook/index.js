@@ -1,7 +1,17 @@
 import React, { Component } from 'react'
-import Input from '@utils/form/Input'
-import TextArea from '@utils/form/TextArea'
-import { Form, Header, Container, ButtonContainer, Button } from './styles'
+import { connect } from 'react-redux'
+
+import { Creators } from '@redux/actions'
+
+import Grid from 'material-ui/Grid'
+import TextField from 'material-ui/TextField'
+import Select from 'material-ui/Select'
+import Button from 'material-ui/Button'
+import { MenuItem } from 'material-ui/Menu'
+
+import { Form, Header, Container, ButtonContainer } from './styles'
+
+import './styles.css'
 
 class CreateBook extends Component {
   constructor(props) {
@@ -12,43 +22,56 @@ class CreateBook extends Component {
       description: ''
     }
   }
-  
-  handleChangeTitle = (event) => {
-    const { value } = event.target
+
+  handleChangeTitle = ({ target }) => {
+    const { value } = target
     this.setState({ title: value })
   }
 
-  handleChangeGenre = (event) => {
-    const { value } = event.target
+  handleChangeGenre = ({ target }) => {
+    const { value } = target
     this.setState({ genres: value })
   }
 
-  handleChangeDescription = (event) => {
-    const { value } = event.target
+  handleChangeDescription = ({ target }) => {
+    const { value } = target
     this.setState({ description: value })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const { title, description } = this.state
+    const newBook = { title, description }
+    this.props.attemptAddBook(newBook)
   }
 
   renderInputs() {
     const { title, genres, description } = this.state
     return (
-      <Form>
-        <div className="row">
-          <Input cols='col s12 l8' label='Titulo' name='title' type="text" value={ title } onChange={ this.handleChangeTitle }/>
-          <Input cols='col s12 l4' label='Gênero' name='genre' type="text" value={ genres } onChange={ this.handleChangeGenre }/>
-        </div>
-        <div className="row">
-          <TextArea
-            type='text'
-            cols='col s12'
-            name='description'
-            value={ description }
-            label='Descrição'
-            onChange={ this.handleChangeDescription }
-          />
-        </div>
+      <Form onSubmit={ this.handleSubmit }>
+        <Grid container spacing={ 24 }>
+        <Grid item xs={ 12 } lg={ 8 }>
+          <TextField fullWidth label='Título' onChange={ this.handleChangeTitle }/>
+        </Grid>
+          <Grid item xs={ 12 } lg={ 4 } className='select-padding'>
+            <Select label='Gênero' onChange={ this.handleChangeGenre } fullWidth value='1'>
+              <MenuItem value='1'>Terror</MenuItem>
+            </Select>
+          </Grid>
+        </Grid>
+        <Grid container spacing={ 24 }>
+          <Grid item xs={ 12 }>
+            <TextField
+              label='Descrição'
+              multiline
+              fullWidth
+              onChange={ this.handleChangeDescription }
+            />
+          </Grid>
+        </Grid>
         <ButtonContainer>
-          <Button className="btn right blue darken-4">Salvar</Button>
-          <Button style={{color: '#0d47a1'}} className="btn-flat right transparent">Cancelar</Button>
+          <Button type='submit' className='btn-custom' variant='flat'>Salvar</Button>
+          <Button className='btn-custom' variant='flat'>Cancelar</Button>
         </ButtonContainer>
       </Form>
     )
@@ -56,11 +79,15 @@ class CreateBook extends Component {
 
   render() {
     return (
-      <Container className="blue-grey lighten-5">
-        <Header className="left-align flow-text blue darken-4">Novo livro</Header>
+      <Container>
+        <Header>Novo livro</Header>
         {this.renderInputs()}
       </Container>
     )
   }
 }
-export default CreateBook
+const mapDispatchToProps = dispatch => ({
+  attemptAddBook: book => dispatch(Creators.addBookRequest(book))
+})
+
+export default connect(null, mapDispatchToProps)(CreateBook)

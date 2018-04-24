@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import { keyframes } from 'styled-components'
 
 import COLORS from '@assets/theme/colors'
 
