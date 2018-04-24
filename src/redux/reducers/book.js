@@ -10,7 +10,7 @@ export const INITIAL_STATE = Immutable({
 
 export const addBookRequest = (state = INITIAL_STATE) => state.merge({ fetching: true })
 
-export const addBookSuccess = (state = INITIAL_STATE, { city }) => state.merge({ error: false, fetching: false})
+export const addBookSuccess = (state = INITIAL_STATE) => state.merge({ error: false, fetching: false})
 
 export const addBookFailure = (state = INITIAL_STATE, { error }) =>state.merge({ error, fetching: false})
 
