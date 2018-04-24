@@ -15,7 +15,7 @@ class Chapter extends Component {
     this.setState({ editorState })
   }
 
-  _onBoldClick = () => {
+  onBoldClick = () => {
     this.handleChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'));
   }
 
@@ -24,8 +24,8 @@ class Chapter extends Component {
       <Container>
         <Header>Escrevendo capítulo...</Header>
         <InnerContainer>
-          <Button color='primary' onClick={ this._onBoldClick }>Bold</Button>
-          <Editor editorState={ this.state.editorState } onChange={ this.handleChange } />
+          <Button color='primary' onClick={ this.onBoldClick }>Bold</Button>
+          <Editor editorState={ this.state.editorState } onChange={ this.handleChange }/>
         </InnerContainer>
       </Container>
     )
