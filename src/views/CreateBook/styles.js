@@ -14,7 +14,6 @@ export const Header = styled.h1`
   margin: 0;
 `
 export const Container = styled.div`
-  z-index: 1;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   width: 60%;

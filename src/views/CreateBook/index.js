@@ -8,7 +8,7 @@ import { MenuItem } from 'material-ui/Menu'
 
 import { Form, Header, Container, ButtonContainer } from './styles'
 
-import { Creators } from '../../redux/actions'
+import { Creators } from '@redux/actions'
 import { connect } from 'react-redux'
 
 import './styles.css'
