@@ -8,14 +8,11 @@ export const INITIAL_STATE = Immutable({
   fetching: false
 })
 
-export const addBookRequest = (state = INITIAL_STATE) =>
-  Object.assign({}, state, { fetching: true })
+export const addBookRequest = (state = INITIAL_STATE) => state.merge({ fetching: true })
 
-export const addBookSuccess = (state = INITIAL_STATE, { city }) =>
-  Object.assign({}, state, { error: false, fetching: false, city })
+export const addBookSuccess = (state = INITIAL_STATE, { city }) => state.merge({ error: false, fetching: false})
 
-export const addBookFailure = (state = INITIAL_STATE, { error }) =>
-  Object.assign({}, state, { error, fetching: false })
+export const addBookFailure = (state = INITIAL_STATE, { error }) =>state.merge({ error, fetching: false})
 
 export const HANDLERS = {
   [Types.ADD_BOOK_REQUEST]: addBookRequest,
