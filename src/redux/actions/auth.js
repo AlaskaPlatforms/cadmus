@@ -1,5 +1,5 @@
 const authActions = {
-  authRequest: ['userName', 'password'],
+  authRequest: ['email', 'password'],
   authSuccess: ['token'],
   authFailure: ['error'],
   authRemover: null

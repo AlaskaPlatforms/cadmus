@@ -9,7 +9,7 @@ const create = (baseURL = config.apiURL) => {
   })
 
   const checkApiStatus = () => api.get('/')
-  const authUser = ({ userName, password }) => api.post(`${baseURL}/loginService/loginMobile`, { userName, password }).then(response => response)
+  const authUser = ({ email, password }) => api.post(`${baseURL}/api/v1/auth`, { email, password }).then(response => response)
   const addBook = ({ book: { title, description } }) => api.post(`${baseURL}/api/v1/book`, { title, description })
 
   return {
