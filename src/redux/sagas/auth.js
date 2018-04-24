@@ -2,7 +2,6 @@ import { call, put } from 'redux-saga/effects'
 import { Creators } from '../actions'
 
 export function* authUser (api, { email, password }) {
-  console.log(email, password)
   try {
     const { headers: { authorization }, ok } = yield call(api.authUser, { email, password })
     if (ok) {
