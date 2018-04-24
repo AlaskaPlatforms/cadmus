@@ -24,16 +24,16 @@ class Books extends Component {
         </Paper>
         <Paper className='paper-wrapper'>
           <Typography variant='headline' component='h3'>Capítulos
-            <Button className='btn-chapter'>Adicionar capítulo</Button>
+            <Button color='primary' className='btn-chapter'>Adicionar capítulo</Button>
           </Typography>
         </Paper>
         <Divider/>
         <List>
           <ListItem divider button>
-            <ListItemText primary='Capitulo I'/>
+            <ListItemText primary='Capítulo I'/>
           </ListItem>
           <ListItem divider button>
-            <ListItemText primary='Capitulo II'/>
+            <ListItemText primary='Capítulo II'/>
           </ListItem>
         </List>
       </Container>
