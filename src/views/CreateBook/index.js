@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
-import Input from '@utils/form/Input'
+
 import Grid from 'material-ui/Grid'
 import TextField from 'material-ui/TextField'
 import Select from 'material-ui/Select'
 import Button from 'material-ui/Button'
 import { MenuItem } from 'material-ui/Menu'
+
 import { Form, Header, Container, ButtonContainer } from './styles'
+
+import { Creators } from '../../redux/actions'
+import { connect } from 'react-redux'
 
 class CreateBook extends Component {
   constructor(props) {
@@ -34,6 +38,10 @@ class CreateBook extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    const { title, description } = this.state
+    const newBook = { title, description }
+    console.log(newBook)
+    this.props.attemptAddBook(newBook)
   }
 
   renderInputs() {
@@ -45,7 +53,7 @@ class CreateBook extends Component {
           <TextField fullWidth
               label="Titulo" onChange={ this.handleChangeTitle }/>
         </Grid>
-          <Grid item style={{ paddingTop: '28px '}} xs={12} lg={4}>
+          <Grid item style={{ paddingTop: '28px '}} xs={ 12 } lg={ 4 }>
             <Select label="Genero" onChange={ this.handleChangeGenre } fullWidth value={ genres }>
               <MenuItem value='1'>Terror</MenuItem>
             </Select>
@@ -78,4 +86,8 @@ class CreateBook extends Component {
     )
   }
 }
-export default CreateBook
+const mapDispatchToProps = dispatch => ({
+  attemptAddBook: book => dispatch(Creators.addBookRequest(book))
+})
+
+export default connect(null, mapDispatchToProps)(CreateBook)
