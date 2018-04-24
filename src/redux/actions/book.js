@@ -1,7 +1,7 @@
-const authActions = {
+const bookActions = {
   addBookRequest: ['book'],
   addBookSuccess: null,
   addBookFailure: ['error'],
 }
 
-export default authActions
+export default bookActions
