@@ -14,7 +14,7 @@ import { Form, Header, Container, ButtonContainer } from './styles'
 import './styles.css'
 
 class CreateBook extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       title: '',
@@ -23,26 +23,26 @@ class CreateBook extends Component {
     }
   }
 
-  handleChangeTitle = ({ target: { value } }) => {
+  handleChangeTitle ({ target: { value } }) {
     this.setState({ title: value })
   }
 
-  handleChangeGenre = ({ target: { value } }) => {
+  handleChangeGenre ({ target: { value } }) {
     this.setState({ genres: value })
   }
 
-  handleChangeDescription = ({ target: { value } }) => {
+  handleChangeDescription ({ target: { value } }) {
     this.setState({ description: value })
   }
 
-  handleSubmit = (event) => {
+  handleSubmit (event) {
     event.preventDefault()
     const { title, description } = this.state
     const newBook = { title, description }
     this.props.attemptAddBook(newBook)
   }
 
-  renderInputs() {
+  renderInputs () {
     const { title, genres, description } = this.state
     return (
       <Form onSubmit={ this.handleSubmit }>
@@ -74,7 +74,7 @@ class CreateBook extends Component {
     )
   }
 
-  render() {
+  render () {
     return (
       <Container>
         <Header>Novo livro</Header>
