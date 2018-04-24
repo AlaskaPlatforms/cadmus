@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { COLORS } from '@assets/theme/Colors'
 
-
 export const Header = styled.h1`
   padding: 15px;
   color: ${COLORS.WHITE};

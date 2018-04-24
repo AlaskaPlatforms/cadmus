@@ -1,21 +1,43 @@
 import React, { Component } from 'react'
 import { Container, Header } from './styles'
+import Paper from 'material-ui/Paper';
+import Typography from 'material-ui/Typography';
+import List, { ListItem, ListItemText } from 'material-ui/List'
+import Button from 'material-ui/Button'
+import Divider from 'material-ui/Divider'
 
-class Book extends Component {
+import './styles.css'
+
+class Books extends Component {
   render () {
     return (
-      <Container className="blue-grey lighten-5">
-        <Header className="left-align flow-text blue darken-4">Livros</Header>
-        <ul className="collection">
-          <li className="collection-item avatar">
-            <i className="material-icons circle green">insert_chart</i>
-            <span className="title">Title</span>
-            <p>Terror, Suspense, Ação</p>
-            <p>Um livro sobre alguma coisa apavorantes...</p>
-          </li>
-        </ul>
+      <Container>
+        <Header>Título</Header>
+        <Paper className='paper-wrapper'>
+          <Typography component="p">
+            Descição Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Vestibulum quis eros porta, bibendum velit ac, iaculis mi. 
+            Suspendisse hendrerit a quam at vestibulum. Proin eget justo ac augue iaculis consequat. 
+            Quisque nec mauris vestibulum, consequat tellus in, commodo nunc. 
+            Nulla porta tellus eros, ac placerat magna aliquet ultricies.
+          </Typography>
+        </Paper>
+        <Paper className='paper-wrapper'>
+          <Typography variant='headline' component='h3'>Capítulos
+            <Button className='btn-chapter'>Adicionar capítulo</Button>
+          </Typography>
+        </Paper>
+        <Divider/>
+        <List>
+          <ListItem divider button>
+            <ListItemText primary='Capitulo I'/>
+          </ListItem>
+          <ListItem divider button>
+            <ListItemText primary='Capitulo II'/>
+          </ListItem>
+        </List>
       </Container>
     )
   }
 }
-export default Book
+export default Books
