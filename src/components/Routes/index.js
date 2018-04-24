@@ -10,6 +10,7 @@ import Login from '@views/Login'
 import Home from '@views/Home'
 import UserPanel from '@views/UserPanel'
 import CreateBook from '@views/CreateBook'
+import Book from '@views/Book'
 
 class Routes extends Component {
   render () {
@@ -22,6 +23,7 @@ class Routes extends Component {
             <Route path='/user' component={ UserPanel }/>
             <Route exact path='/' component={ Home } />
             <Route path='/new-book' component={ CreateBook } />
+            <Route path='/book' component={ Book } />
           </Switch>
         </div>
       </Router>
