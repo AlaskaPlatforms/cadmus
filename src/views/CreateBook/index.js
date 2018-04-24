@@ -51,8 +51,8 @@ class CreateBook extends Component {
             </Select>
           </Grid>
         </Grid>
-        <Grid container spacing={24}>
-          <Grid item xs={12}>
+        <Grid container spacing={ 24 }>
+          <Grid item xs={ 12 }>
             <TextField
               label="Descrição"
               multiline
