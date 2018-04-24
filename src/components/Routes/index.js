@@ -11,6 +11,7 @@ import Home from '@views/Home'
 import CreateBook from '@views/CreateBook'
 import Books from '@views/Books'
 import Book from '@views/Book'
+import Chapter from '@views/Chapter'
 
 class Routes extends Component {
   render () {
@@ -23,6 +24,7 @@ class Routes extends Component {
             <Route path='/new-book' component={ CreateBook } />
             <Route path='/books' component={ Books } />
             <Route path='/book' component={ Book } />
+            <Route path='/chapter' component={ Chapter } />
           </Switch>
         </div>
       </Router>
