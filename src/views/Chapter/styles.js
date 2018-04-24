@@ -15,3 +15,6 @@ export const Container = styled.div`
   margin: 15px auto;
   background-color: ${COLORS.WHITE};
 `
+export const InnerContainer = styled.div`
+  padding: 15px;
+`

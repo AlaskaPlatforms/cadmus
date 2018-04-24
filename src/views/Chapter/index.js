@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Header } from './styles'
+import { Container, Header, InnerContainer } from './styles'
 import { Editor, EditorState, RichUtils } from 'draft-js'
 import Button from 'material-ui/Button'
 
@@ -23,8 +23,10 @@ class Chapter extends Component {
     return (
       <Container>
         <Header>Escrevendo capítulo...</Header>
-        <Button color='primary' onClick={ this._onBoldClick }>Bold</Button>
-        <Editor editorState={ this.state.editorState } onChange={ this.handleChange } />
+        <InnerContainer>
+          <Button color='primary' onClick={ this._onBoldClick }>Bold</Button>
+          <Editor editorState={ this.state.editorState } onChange={ this.handleChange } />
+        </InnerContainer>
       </Container>
     )
   }
