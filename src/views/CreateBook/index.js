@@ -11,6 +11,8 @@ import { Form, Header, Container, ButtonContainer } from './styles'
 import { Creators } from '../../redux/actions'
 import { connect } from 'react-redux'
 
+import './styles.css'
+
 class CreateBook extends Component {
   constructor(props) {
     super(props)
@@ -40,7 +42,6 @@ class CreateBook extends Component {
     event.preventDefault()
     const { title, description } = this.state
     const newBook = { title, description }
-    console.log(newBook)
     this.props.attemptAddBook(newBook)
   }
 
@@ -51,10 +52,10 @@ class CreateBook extends Component {
         <Grid container spacing={ 24 }>
         <Grid item xs={ 12 } lg={ 8 }>
           <TextField fullWidth
-              label="Titulo" onChange={ this.handleChangeTitle }/>
+              label='Título' onChange={ this.handleChangeTitle }/>
         </Grid>
-          <Grid item style={{ paddingTop: '28px '}} xs={ 12 } lg={ 4 }>
-            <Select label="Genero" onChange={ this.handleChangeGenre } fullWidth value={ genres }>
+          <Grid item xs={ 12 } lg={ 4 } className='select-padding'>
+            <Select label='Gênero' onChange={ this.handleChangeGenre } fullWidth value='1'>
               <MenuItem value='1'>Terror</MenuItem>
             </Select>
           </Grid>
@@ -62,7 +63,7 @@ class CreateBook extends Component {
         <Grid container spacing={ 24 }>
           <Grid item xs={ 12 }>
             <TextField
-              label="Descrição"
+              label='Descrição'
               multiline
               fullWidth
               onChange={ this.handleChangeDescription }
@@ -70,8 +71,8 @@ class CreateBook extends Component {
           </Grid>
         </Grid>
         <ButtonContainer>
-          <Button type='submit' style={{ float: 'right', margin: '15px' }} variant="flat">Salvar</Button>
-          <Button style={{ float: 'right', margin: '15px' }} variant="flat">Cancelar</Button>
+          <Button type='submit' className='btn-custom' variant='flat'>Salvar</Button>
+          <Button className='btn-custom' variant='flat'>Cancelar</Button>
         </ButtonContainer>
       </Form>
     )
@@ -79,8 +80,8 @@ class CreateBook extends Component {
 
   render() {
     return (
-      <Container className="blue-grey lighten-5">
-        <Header className="left-align flow-text blue darken-4">Novo livro</Header>
+      <Container>
+        <Header>Novo livro</Header>
         {this.renderInputs()}
       </Container>
     )
