@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Header, InnerContainer, TextArea } from './styles'
+import { Container, Header, InnerContainer, TextArea, ButtonContainer } from './styles'
 import Button from 'material-ui/Button'
 import TextField from 'material-ui/TextField'
 import Grid from 'material-ui/Grid'
@@ -36,17 +36,17 @@ class Chapter extends Component {
             <Grid item xs={ 12 }>  
               <TextArea
                 value={ chapterContent }
-                rows='25'
+                rows='20'
                 placeholder='Escreva aqui sua história...'
                 onChange={ this.onChangeChapterContent }  
               >
               </TextArea>
             </Grid>
           </Grid>
-          <Grid container spacing={ 24 }>
-            <Grid item xs={ 12 }>  
-            </Grid>
-          </Grid>
+          <ButtonContainer>
+            <Button type='submit' className='btn-custom' variant='flat'>Salvar</Button>
+            <Button className='btn-custom' variant='flat'>Cancelar</Button>
+        </ButtonContainer>
         </InnerContainer>
       </Container>
     )

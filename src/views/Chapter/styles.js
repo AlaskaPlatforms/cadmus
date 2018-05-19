@@ -13,14 +13,16 @@ export const Container = styled.div`
   border-radius: 5px;
   width: 60%;
   margin: 15px auto;
-  background-color: ${COLORS.WHITE};
-`
+  `
 export const InnerContainer = styled.div`
   padding: 15px;
+  background-color: ${COLORS.WHITE};
+  border-radius: 0 0 5px 5px;
 `
 export const TextArea = styled.textarea`
+  display: inline-block;
   width: 99%;
-  border-radius: 5px;
+  border-radius: 3px;
   font: inherit;
   padding-top: 5px;
   padding-left: 5px;
@@ -35,4 +37,8 @@ export const TextArea = styled.textarea`
     padding-top: 4px;
     padding-left: 4px;
   }
+`
+export const ButtonContainer = styled.div`
+  display: inline-block;
+  width: 100%;
 `
