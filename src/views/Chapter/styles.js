@@ -18,3 +18,21 @@ export const Container = styled.div`
 export const InnerContainer = styled.div`
   padding: 15px;
 `
+export const TextArea = styled.textarea`
+  width: 99%;
+  border-radius: 5px;
+  font: inherit;
+  padding-top: 5px;
+  padding-left: 5px;
+  outline: 0;
+  &:hover {
+    border: 2px solid #000;
+    padding-top: 4px;
+    padding-left: 4px;
+  }
+  &:focus {
+    border: 2px solid #1565c0;
+    padding-top: 4px;
+    padding-left: 4px;
+  }
+`

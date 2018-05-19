@@ -50,9 +50,9 @@ class CreateBook extends Component {
     return (
       <Form onSubmit={ this.handleSubmit }>
         <Grid container spacing={ 24 }>
-        <Grid item xs={ 12 } lg={ 8 }>
-          <TextField fullWidth label='Título' onChange={ this.handleChangeTitle }/>
-        </Grid>
+          <Grid item xs={ 12 } lg={ 8 }>
+            <TextField fullWidth label='Título' onChange={ this.handleChangeTitle }/>
+          </Grid>
           <Grid item xs={ 12 } lg={ 4 } className='select-padding'>
             <Select label='Gênero' onChange={ this.handleChangeGenre } fullWidth value='1'>
               <MenuItem value='1'>Terror</MenuItem>
