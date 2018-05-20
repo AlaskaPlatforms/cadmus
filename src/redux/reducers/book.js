@@ -14,7 +14,7 @@ export const addBookSuccess = (state = INITIAL_STATE) => state.merge({ error: fa
 
 export const addBookFailure = (state = INITIAL_STATE, { error }) => state.merge({ error, writing: false })
 
-export const HANDLERS = {
+const HANDLERS = {
   [Types.ADD_BOOK_REQUEST]: addBookRequest,
   [Types.ADD_BOOK_SUCCESS]: addBookSuccess,
   [Types.ADD_BOOK_FAILURE]: addBookFailure

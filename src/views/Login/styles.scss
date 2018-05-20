@@ -1,0 +1,59 @@
+.md-logo-name {
+  display: flex;
+  flex-direction: row;
+
+  @for $n from (6)*-1 through -1 {
+    span:nth-child(#{abs($n)}) {
+      animation-delay: $n * 0.1s + 3s, abs($n) * 0.1s + 3s
+    }
+  }
+}
+
+.md-button {
+  color: #3964F3 !important;
+}
+
+.md-button-raised {
+  background-color: #3964F3 !important;
+  color: #FFFFFF !important;
+  margin: 15px 0 !important;
+}
+
+.l-active-login-form {
+  transition: .3s .3s ease;
+  opacity: 1;
+
+  @media (min-width: 768px) {
+    transform: translate(0, -50%);
+  }
+}
+
+.l-inactive-login-form {
+  transition: .3s ease;
+  opacity: 0;
+  pointer-events: none;
+
+  @media (min-width: 768px) {
+    transform: translate(30px, -50%);
+  }
+}
+
+.l-active-register-form {
+  transition: .3s .3s ease;
+  opacity: 1;
+
+  @media (min-width: 768px) {
+    transform: translate(0, -50%);
+  }
+}
+
+.l-inactive-register-form {
+  transition: .3s ease;
+  transform: translateY(-5%);
+  opacity: 0;
+  pointer-events: none;
+
+  @media (min-width: 768px) {
+    transform: translate(30px, -50%);
+  }
+}
