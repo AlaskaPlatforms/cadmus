@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLORS } from '@assets/theme/Colors'
+import COLORS from '@assets/theme/colors'
 
 
 export const Header = styled.h1`
