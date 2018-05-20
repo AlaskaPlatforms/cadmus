@@ -1,4 +1,4 @@
-import { call, put} from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects'
 import { Creators } from '../actions'
 
 export function* addBook (api, { book }) {
