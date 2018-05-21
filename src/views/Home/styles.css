@@ -96,6 +96,14 @@ h2 {
 	position: relative;
 }
 
+.separatorHero {
+	text-align: center;
+	padding: 88px 0 210px;
+	z-index: 2;
+	position: relative;
+	background-color: #01579B; 	
+}
+
 .buttonLargeWhite {
 	background: #fff;
 	font-family: inherit;
@@ -178,8 +186,12 @@ h2 {
 	text-decoration: none;
 }
 
-/* Clouds */
-#clouds path {
+#headerCurve {
+	width: 100%;
+	height: 70px;
+	position: absolute;
+	bottom: 0;
+	background-color: transparent;
 	fill: #01579B;
 	stroke: #01579B;
 }

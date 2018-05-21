@@ -10,11 +10,9 @@ class Home extends Component {
     }    
   }
 
-  svg() {
+  svgClound() {
     return (
-      //<svg id="clouds" viewBox="0 0 1280 70" preserveAspectRatio="none" id="headerCurve" fill="blue" role="presentation" aria-hidden="true">      
-      //<svg id="clouds" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">      
-      <svg id="clouds" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">      
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" id="headerCurve" role="presentation" aria-hidden="true">        
         <path d="M-5 100 Q 0 20 5 100 Z
           M0 100 Q 5 0 10 100
           M5 100 Q 10 30 15 100
@@ -36,7 +34,7 @@ class Home extends Component {
           M85 100 Q 90 50 95 100
           M90 100 Q 95 25 100 100
           M95 100 Q 100 15 105 100 Z">
-        </path>
+        </path>        
       </svg>
     )
   }
@@ -92,7 +90,7 @@ class Home extends Component {
       <div className='header'>
         { this.headerNav() }
         { this.headerHero() }
-        { this.svg() }
+        { this.svgClound() }
       </div>
     )
   }
