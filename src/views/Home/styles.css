@@ -1,0 +1,180 @@
+a, body, div, footer, h1, h2, header, html, img, nav, p, span, table, td, th, tr {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+h1, h2 {
+	-webkit-perspective: 800px;
+	perspective: 800px;
+}
+
+h1 {
+	font-family: inherit;
+	font-size: 66px;
+	color: #fff;
+	margin-bottom: 26px;
+}
+
+h2 {
+	font-family: inherit;
+	font-size: 30px;
+	color: hsla(0,0%,100%,.8);
+	letter-spacing: 0;
+	line-height: 46px;
+	margin-bottom: 54px;
+}
+
+.mainDiv {
+	min-width: 1140px;
+}
+
+.header {
+  background-color: #455A64;    
+  position: relative;
+}
+
+.fixedHeaderNav, .headerNav {
+  z-index: 2;
+  position: relative;
+}
+
+.headerNav {
+	padding: 32px 0;
+}
+
+.headerContainer {
+	width: 1120px;
+	margin: 0 auto;
+}
+
+.headerLogo {
+	float: left;
+	width: 151px;
+	display: block;
+}
+
+.fixedHeaderMenu, .headerMenu {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+
+}
+
+.linkButton {
+	display: inline-block;
+	line-height: 39px;
+	height: 39px;
+	padding: 0 5px;
+	font-family: inherit;
+	font-size: 100%;
+	font: inherit;
+	text-decoration: none;
+}
+
+.button, .linkButton {
+	color: #fff;
+	cursor: pointer;
+}
+
+.headerHero {
+	text-align: center;
+	padding: 88px 0 210px;
+	z-index: 2;
+	position: relative;
+}
+
+.buttonLargeWhite {
+	background: #fff;
+	font-family: inherit;
+	font-size: 22px;
+	color: #37474F;
+	letter-spacing: 0;
+	min-width: 200px;
+	display: inline-block;
+	padding: 14px 10px 16px;
+	text-align: center;
+	-webkit-transition: box-shadow .3s;
+	transition: box-shadow .3s;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.buttonLargeBlue {
+	background: hsla(0,0%,100%,.22);
+	font-family: inherit;
+	font-size: 22px;
+	color: #fff;
+	letter-spacing: 0;
+	min-width: 200px;
+	display: inline-block;
+	padding: 14px 10px 16px;
+	text-align: center;
+	-webkit-transition: box-shadow .3s;
+	transition: box-shadow .3s;
+	margin-left: 40px;
+	cursor: pointer;
+}
+
+.cadmusMessage {
+	background-color: #01579B;
+	text-align: center;
+	padding-top: 88px;
+	margin-top: -1px;
+}
+
+.cadmusMessageImg {
+	width: 64%;
+	max-width: 800px;
+}
+
+.footer {
+	background-color: snow;
+	text-align: center;
+	position: relative;
+	padding-top: 50px;
+	padding-bottom: 70px;
+}
+
+.footerNav {
+	z-index: 2;
+	position: relative;
+}
+
+.footerCopyright {
+	float: left;
+	font-family: inherit;
+	color: #8e8e93;
+	font-size: 100%;
+}
+
+.footerMenu {
+	line-height: 21px;
+	float: right;
+}
+
+.linkButtonFixedFooter {
+	display: inline-block;
+	line-height: 21px;
+	height: 21px;
+	cursor: pointer;
+	font-family: inherit;
+	color: #8e8e93;
+	font-size: 100%;
+	font: inherit;
+	margin-left: 40px;
+	text-decoration: none;
+}
+

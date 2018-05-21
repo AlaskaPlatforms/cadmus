@@ -1,5 +1,18 @@
 import styled from 'styled-components'
 
+export const Styles = {
+  root: {
+    flexGrow: 1,
+  },
+  flex: {
+    flex: 1,
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
+}
+
 export const Card = styled.div`
   width: 60%;
   margin: 150px auto;
