@@ -178,3 +178,8 @@ h2 {
 	text-decoration: none;
 }
 
+/* Clouds */
+#clouds path {
+	fill: #01579B;
+	stroke: #01579B;
+}
