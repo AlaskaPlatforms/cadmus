@@ -42,7 +42,7 @@ class Home extends Component {
   headerContainer() {
     return (
       <div className='headerContainer'>
-        <img className='headerLogo' src='' alt='cadmus.com logo'/>   
+        <img className='headerLogo' src='https://raw.githubusercontent.com/AlaskaPlatforms/cadmus/feature/login/src/assets/img/logo.png' alt='cadmus.com logo'/>   
         { this.headerMenu() }   
       </div>
     )
@@ -79,7 +79,7 @@ class Home extends Component {
             <br/>
           </span>
         </h2>
-        <img class="cadmusMessageImg" src="" alt="pagina da web que mostra como publicar obras"/>
+        <img class="cadmusMessageImg" src='https://raw.githubusercontent.com/AlaskaPlatforms/cadmus/feature/login/src/assets/img/logo-full.png' alt="pagina da web que mostra como publicar obras"/>
       </div>  
     )
   }
