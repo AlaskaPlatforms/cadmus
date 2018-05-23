@@ -1,4 +1,6 @@
 body {
   background-color: #fff;
   font-family: 'Roboto';
+  box-sizing: border-box;
+  margin: 0;
 }

@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import { Creators } from '@redux/actions'
 
 import Grid from 'material-ui/Grid'
 import TextField from 'material-ui/TextField'
@@ -8,45 +11,39 @@ import { MenuItem } from 'material-ui/Menu'
 
 import { Form, Header, Container, ButtonContainer } from './styles'
 
-import { Creators } from '@redux/actions'
-import { connect } from 'react-redux'
-
 import './styles.css'
 
 class CreateBook extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       title: '',
-      genres: '',
+      genre: '',
       description: ''
     }
   }
-  
-  handleChangeTitle = ({ target }) => {
-    const { value } = target
+
+  handleChangeTitle = ({ target: { value } }) => {
     this.setState({ title: value })
   }
 
-  handleChangeGenre = ({ target }) => {
-    const { value } = target
-    this.setState({ genres: value })
+  handleChangeGenre = ({ target: { value } }) => {
+    this.setState({ genre: value })
   }
 
-  handleChangeDescription = ({ target }) => {
-    const { value } = target
+  handleChangeDescription = ({ target: { value } }) => {
     this.setState({ description: value })
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const { title, description } = this.state
-    const newBook = { title, description }
+    const { title, description, genre } = this.state
+    const newBook = { title, description, genre }
     this.props.attemptAddBook(newBook)
   }
 
-  renderInputs() {
-    const { title, genres, description } = this.state
+  renderInputs () {
+    const { title, genre, description } = this.state
     return (
       <Form onSubmit={ this.handleSubmit }>
         <Grid container spacing={ 24 }>
@@ -77,7 +74,7 @@ class CreateBook extends Component {
     )
   }
 
-  render() {
+  render () {
     return (
       <Container>
         <Header>Novo livro</Header>

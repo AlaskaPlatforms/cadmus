@@ -64,7 +64,7 @@ class Home extends Component {
   headerMenu() {
     return (
       <div className='headerMenu'>
-        <a class="linkButton" href="#">Criar uma conta</a>      
+        <a class="linkButton" href="#">Login</a>      
       </div>
     )
   }
