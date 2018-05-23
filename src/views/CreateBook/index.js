@@ -21,9 +21,6 @@ class CreateBook extends Component {
       genres: '',
       description: ''
     }
-    this.handleChangeTitle = this.handleChangeTitle.bind(this)
-    this.handleChangeGenre = this.handleChangeGenre.bind(this)
-    this.handleChangeDescription = this.handleChangeDescription.bind(this)
   }
 
   handleChangeTitle ({ target: { value } }) {
