@@ -15,14 +15,14 @@ h1, h2 {
 h1 {
 	font-family: inherit;
 	font-size: 66px;
-	color: #fff;
+	color: rgb(86, 156, 214);
 	margin-bottom: 26px;
 }
 
 h2 {
 	font-family: inherit;
 	font-size: 30px;
-	color: hsla(0,0%,100%,.8);
+	color: rgba(86, 156, 214, 0.8);
 	letter-spacing: 0;
 	line-height: 46px;
 	margin-bottom: 54px;
@@ -33,7 +33,7 @@ h2 {
 }
 
 .header {
-  background-color: #455A64;    
+  background-color: rgb(30, 30, 30);    
   position: relative;
 }
 
@@ -85,7 +85,7 @@ h2 {
 }
 
 .button, .linkButton {
-	color: #fff;
+	color: rgb(86, 156, 214);;
 	cursor: pointer;
 }
 
@@ -101,14 +101,14 @@ h2 {
 	padding: 88px 0 210px;
 	z-index: 2;
 	position: relative;
-	background-color: #01579B; 	
+	background-color: rgb(86, 156, 214);; 	
 }
 
 .buttonLargeWhite {
-	background: #fff;
+	background: rgba(128, 128, 128, 0.9);
 	font-family: inherit;
 	font-size: 22px;
-	color: #37474F;
+	color: #fff;
 	letter-spacing: 0;
 	min-width: 200px;
 	display: inline-block;
@@ -124,7 +124,7 @@ h2 {
 	background: hsla(0,0%,100%,.22);
 	font-family: inherit;
 	font-size: 22px;
-	color: #fff;
+	color: rgb(86, 156, 214);;
 	letter-spacing: 0;
 	min-width: 200px;
 	display: inline-block;
@@ -137,7 +137,7 @@ h2 {
 }
 
 .cadmusMessage {
-	background-color: #01579B;
+	background-color: rgb(15, 15, 15);
 	text-align: center;
 	padding-top: 88px;
 	margin-top: -1px;
@@ -192,6 +192,6 @@ h2 {
 	position: absolute;
 	bottom: 0;
 	background-color: transparent;
-	fill: #01579B;
-	stroke: #01579B;
+	fill: rgb(86, 156, 214);;
+	stroke: rgb(86, 156, 214);;
 }

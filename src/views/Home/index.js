@@ -40,21 +40,22 @@ class Home extends Component {
   }
 
   headerHero() {
+    //<a class="buttonLargeWhite" role="link" href="#">Leitor</a>
     return (
       <div className='headerHero'>
         <h1>Seja um escritor!</h1>
         <h2>
           <span>
-            Cadmus é a maneira mais fácil de publicar suas obras!
+            CADMUS é a maneira mais fácil de publicar suas obras
           <br/>
           </span>
           <span>
-            Descubra novas obras!
+            e descobrir novas obras!
           </span>
         </h2>
         <div>
-          <a class="buttonLargeWhite" role="link" href="#">Leitor</a>        
-          <div class="buttonLargeBlue" tabindex="0" role="button">Escritor</div>  
+          <div class="buttonLargeWhite" tabindex="0" role="button">Leitor</div>  
+          <div class="buttonLargeBlue" tabindex="1" role="button">Escritor</div>  
         </div>
       </div>
     )
@@ -121,7 +122,7 @@ class Home extends Component {
           <div className='footerCopyright'>© 2018 TADS</div>
           <div className='footerMenu'>
             <a class="linkButtonFixedFooter" role="link" href="#">Termos de uso</a>            
-            <a class="linkButtonFixedFooter" role="link" href="#">Privacidade &amp; Cookies</a>
+            <a class="linkButtonFixedFooter" role="link" href="#">Privacidade</a>
           </div>
         </div>
       </div>
