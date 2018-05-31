@@ -18,32 +18,32 @@ class CreateBook extends Component {
     super(props)
     this.state = {
       title: '',
-      genres: '',
+      genre: '',
       description: ''
     }
   }
 
-  handleChangeTitle ({ target: { value } }) {
+  handleChangeTitle = ({ target: { value } }) => {
     this.setState({ title: value })
   }
 
-  handleChangeGenre ({ target: { value } }) {
-    this.setState({ genres: value })
+  handleChangeGenre = ({ target: { value } }) => {
+    this.setState({ genre: value })
   }
 
-  handleChangeDescription ({ target: { value } }) {
+  handleChangeDescription = ({ target: { value } }) => {
     this.setState({ description: value })
   }
 
-  handleSubmit (event) {
+  handleSubmit = (event) => {
     event.preventDefault()
-    const { title, description } = this.state
-    const newBook = { title, description }
+    const { title, description, genre } = this.state
+    const newBook = { title, description, genre }
     this.props.attemptAddBook(newBook)
   }
 
   renderInputs () {
-    const { title, genres, description } = this.state
+    const { title, genre, description } = this.state
     return (
       <Form onSubmit={ this.handleSubmit }>
         <Grid container spacing={ 24 }>
