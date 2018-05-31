@@ -83,7 +83,7 @@ class Login extends Component {
                 <FormGroup>
                   <TextField fullWidth label='Email' margin='dense' name='email' onChange={ this.handleInputChange } />
                   <TextField fullWidth label='Senha' type='password' name='password' onChange={ this.handleInputChange } margin='dense' />
-                  <Button className='md-button-raised' variant='raised' onClick={ () => this.props.attemptAuth(this.state.email, this.state.password) }>Entrar</Button>
+                  <Button className='md-button-raised' variant='raised' onClick={ () => this.props.attemptAuth(this.state.email, this.state.password, this.props.history) }>Entrar</Button>
                   <Button className='md-button' onClick={ this.handleFormsExchange }>Registrar</Button>
                 </FormGroup>
               </FormControl>
@@ -114,7 +114,7 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  attemptAuth: (email, password) => dispatch(Creators.authRequest(email, password)),
+  attemptAuth: (email, password, history) => dispatch(Creators.authRequest(email, password, history)),
   attemptRegister: (email, username, password) => dispatch(Creators.userRegisterRequest(email, username, password))
 })
 

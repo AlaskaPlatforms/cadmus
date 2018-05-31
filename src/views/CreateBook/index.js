@@ -18,7 +18,7 @@ class CreateBook extends Component {
     super(props)
     this.state = {
       title: '',
-      genre: '',
+      genre: '0',
       description: ''
     }
   }
@@ -28,7 +28,7 @@ class CreateBook extends Component {
   }
 
   handleChangeGenre = ({ target: { value } }) => {
-    this.setState({ genre: value })
+    this.setState(state => ({...state, genre: value }))
   }
 
   handleChangeDescription = ({ target: { value } }) => {
@@ -44,15 +44,16 @@ class CreateBook extends Component {
 
   renderInputs () {
     const { title, genre, description } = this.state
+    console.log('user', this.props.user)
     return (
-      <Form onSubmit={ this.handleSubmit }>
+      <Form onSubmit={ this.handleSubmit } className='dark'>
         <Grid container spacing={ 24 }>
           <Grid item xs={ 12 } lg={ 8 }>
             <TextField fullWidth label='Título' onChange={ this.handleChangeTitle }/>
           </Grid>
           <Grid item xs={ 12 } lg={ 4 } className='select-padding'>
-            <Select label='Gênero' onChange={ this.handleChangeGenre } fullWidth value='1'>
-              <MenuItem value=''>Selecione uma opção</MenuItem>
+            <Select label='Gênero' onChange={ this.handleChangeGenre } fullWidth value={ genre }>
+              <MenuItem value='0'>Selecione uma opção</MenuItem>
               <MenuItem value='1'>Terror</MenuItem>
             </Select>
           </Grid>
@@ -84,8 +85,8 @@ class CreateBook extends Component {
     )
   }
 }
-const mapStateToProps = ({ auth }) => ({
-  user: auth.user
+const mapStateToProps = ({ user }) => ({
+  user: user
 })
 const mapDispatchToProps = dispatch => ({
   attemptAddBook: book => dispatch(Creators.addBookRequest(book))

@@ -1,7 +1,8 @@
 const userActions = {
   userRegisterRequest: ['email', 'username', 'password'],
   userRegisterSuccess: null,
-  userRegisterFailure: ['error']
+  userRegisterFailure: ['error'],
+  storeUserInfo: ['user']
 }
 
 export default userActions

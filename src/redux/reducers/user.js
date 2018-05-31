@@ -6,8 +6,11 @@ import { Types } from './../actions'
 
 export const INITIAL_STATE = Immutable({
   registering: false,
-  error: null
+  error: null,
+  user: {}
 })
+
+export const storeUserInfo = (state = INITIAL_STATE, { user }) => state.merge({ user })
 
 export const userRegisterRequest = (state = INITIAL_STATE, { ok }) => state.merge({ registering: true })
 
@@ -20,7 +23,8 @@ export const unauthUser = () => INITIAL_STATE
 const HANDLERS = {
   [Types.USER_REGISTER_REQUEST]: userRegisterRequest,
   [Types.USER_REGISTER_SUCCESS]: userRegisterSuccess,
-  [Types.USER_REGISTER_FAILURE]: userRegisterFailure
+  [Types.USER_REGISTER_FAILURE]: userRegisterFailure,
+  [Types.STORE_USER_INFO]: storeUserInfo
 }
 
 export const reducer = createReducer(INITIAL_STATE, HANDLERS)
