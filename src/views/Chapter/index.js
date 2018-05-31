@@ -29,7 +29,7 @@ class Chapter extends Component {
         <InnerContainer>
           <Grid container spacing={ 24 }> 
             <Grid item xs={ 12 }>
-              <TextField value={ title } placeholder='Título' fullWidth  onChange={ this.onChangeTitle }/>
+              <TextField value={ title } label='Título' fullWidth  onChange={ this.onChangeTitle }/>
             </Grid>
           </Grid>
           <Grid container spacing={ 24 }>
