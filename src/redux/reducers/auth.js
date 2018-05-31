@@ -12,7 +12,7 @@ export const INITIAL_STATE = Immutable({
   user: {}
 })
 
-export const authUserRequest = (state = INITIAL_STATE, { ok }) => state.merge({ attemptingAuth: true })
+export const authUserRequest = (state = INITIAL_STATE, { ok }) => Object.assign({}, state, { attemptingAuth: true })
 
 export const authUserSuccess = (state = INITIAL_STATE, { token, user }) => state.merge({ attemptingAuth: false, authenticated: true, token, user })
 

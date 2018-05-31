@@ -3,8 +3,13 @@ import { Container, Header } from './styles'
 import List, { ListItem, ListItemText } from 'material-ui/List'
 import Avatar from 'material-ui/Avatar'
 import { connect } from 'react-redux'
+import { Creators } from '@redux/actions'
 
 class Books extends Component {
+  componentWillMount () {
+    this.props.attemptGetBooks(this.props.user._id)
+  }
+
   render () {
     return (
       <Container>
@@ -14,16 +19,15 @@ class Books extends Component {
             <Avatar></Avatar>
             <ListItemText primary="Título" secondary="Descrição" />
           </ListItem>
-          <ListItem divider button>
-            <Avatar></Avatar>
-            <ListItemText primary="Título" secondary="Descrição" />
-          </ListItem>
         </List>
       </Container>
     )
   }
 }
-const mapSateToProps = ({ auth }) => ({
-  user: auth.user
+const mapSateToProps = ({ user }) => ({
+  user: user.user
 })
-export default connect(mapSateToProps)(Books)
+const mapDispatchToProps = dispatch => ({
+  attemptGetBooks: userId => dispatch(Creators.getBooksRequest(userId))
+})
+export default connect(mapSateToProps, mapDispatchToProps)(Books)

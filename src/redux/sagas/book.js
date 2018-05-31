@@ -14,3 +14,17 @@ export function* addBook (api, { book }) {
     yield put(Creators.addBookFailure(error))
   }
 }
+
+export function* getBooks (api, { userId }) {
+  try {
+    const { data, ok } = yield call(api.getBooks, { userId })
+    if (ok) {
+      console.log(data)
+    } else {
+      const { error } = data
+      yield put(Creators.getBooksFailure(error))
+    }
+  } catch (error) {
+    yield put(Creators.getBooksFailure(error))
+  }
+}
