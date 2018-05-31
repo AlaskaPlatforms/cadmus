@@ -13,13 +13,10 @@ class Chapter extends Component {
     }
   }
 
-  onChangeTitle = ({ target: { value } }) => {
-    this.setState({...this.state, title: value })
+  handleInputChange = ({ target: { value, name } }) => {
+    this.setState(state => ({...state, [name]: value }))
   }
   
-  onChangeChapterContent = ({ target: { value } }) => {
-    this.setState({...this.state, chapterContent: value })
-  }
 
   render () {
     const { title, chapterContent } = this.state
@@ -29,16 +26,17 @@ class Chapter extends Component {
         <InnerContainer>
           <Grid container spacing={ 24 }> 
             <Grid item xs={ 12 }>
-              <TextField value={ title } label='Título' fullWidth  onChange={ this.onChangeTitle }/>
+              <TextField name='title' value={ title } label='Título' fullWidth  onChange={ this.handleInputChange }/>
             </Grid>
           </Grid>
           <Grid container spacing={ 24 }>
             <Grid item xs={ 12 }>  
               <TextArea
+                name='chapterContent'
                 value={ chapterContent }
                 rows='20'
                 placeholder='Escreva aqui sua história...'
-                onChange={ this.onChangeChapterContent }  
+                onChange={ this.handleInputChange }  
               >
               </TextArea>
             </Grid>
