@@ -1,6 +1,6 @@
 const bookActions = {
   addBookRequest: ['book'],
-  addBookSuccess: ['book'],
+  addBookSuccess: null,
   addBookFailure: ['error'],
 }
 

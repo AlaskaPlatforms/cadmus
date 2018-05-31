@@ -2,6 +2,7 @@ import { call, put } from 'redux-saga/effects'
 import { Creators } from '../actions'
 
 export function* addBook (api, { book }) {
+    console.log(book)
   try {
     const { data, ok } = yield call(api.addBook, { book })
     if (ok) {

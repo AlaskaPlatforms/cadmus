@@ -23,36 +23,27 @@ class CreateBook extends Component {
     }
   }
 
-  handleChangeTitle = ({ target: { value } }) => {
-    this.setState({ title: value })
-  }
-
-  handleChangeGenre = ({ target: { value } }) => {
-    this.setState(state => ({...state, genre: value }))
-  }
-
-  handleChangeDescription = ({ target: { value } }) => {
-    this.setState({ description: value })
+  handleInputChange = ({ target: { value, name } }) => {
+    this.setState(state => ({...state, [name]: value }))
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
     const { title, description, genre } = this.state
-    const newBook = { title, description, genre }
+    const newBook = { title, description, userId: this.props.user._id }
     this.props.attemptAddBook(newBook)
   }
 
   renderInputs () {
     const { title, genre, description } = this.state
-    console.log('user', this.props.user)
     return (
       <Form onSubmit={ this.handleSubmit } className='dark'>
         <Grid container spacing={ 24 }>
           <Grid item xs={ 12 } lg={ 8 }>
-            <TextField fullWidth label='Título' onChange={ this.handleChangeTitle }/>
+            <TextField name='title' fullWidth label='Título' onChange={ this.handleInputChange }/>
           </Grid>
           <Grid item xs={ 12 } lg={ 4 } className='select-padding'>
-            <Select label='Gênero' onChange={ this.handleChangeGenre } fullWidth value={ genre }>
+            <Select name='genre' label='Gênero' onChange={ this.handleInputChange } fullWidth value={ genre }>
               <MenuItem value='0'>Selecione uma opção</MenuItem>
               <MenuItem value='1'>Terror</MenuItem>
             </Select>
@@ -61,10 +52,11 @@ class CreateBook extends Component {
         <Grid container spacing={ 24 }>
           <Grid item xs={ 12 }>
             <TextField
+              name='description'
               label='Descrição'
               multiline
               fullWidth
-              onChange={ this.handleChangeDescription }
+              onChange={ this.handleInputChange }
             />
           </Grid>
         </Grid>
@@ -86,7 +78,7 @@ class CreateBook extends Component {
   }
 }
 const mapStateToProps = ({ user }) => ({
-  user: user
+  user: user.user
 })
 const mapDispatchToProps = dispatch => ({
   attemptAddBook: book => dispatch(Creators.addBookRequest(book))
