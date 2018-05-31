@@ -61,7 +61,7 @@ class CreateBook extends Component {
           </Grid>
         </Grid>
         <ButtonContainer>
-          <Button type='submit' className='btn-custom' variant='flat'>Salvar</Button>
+          <Button type='submit' className='btn-custom' variant='primary'>Salvar</Button>
           <Button className='btn-custom' variant='flat'>Cancelar</Button>
         </ButtonContainer>
       </Form>
