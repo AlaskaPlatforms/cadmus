@@ -15,16 +15,17 @@ import Chapter from '@views/Chapter'
 
 class Routes extends Component {
   render () {
+    const { isAuthed } = this.props
     return (
       <Router>
         <div>
           <Switch>
             <Route exact path='/' component={ Home } />
             <Route path='/login' component={ Login } />
-            <Route path='/new-book' component={ CreateBook } />
-            <Route path='/books' component={ Books } />
-            <Route path='/book' component={ Book } />
-            <Route path='/chapter' component={ Chapter } />
+            <PrivateRoute authed={ isAuthed } path='/new-book' component={ CreateBook } />
+            <PrivateRoute authed={ isAuthed } path='/books' component={ Books } />
+            <PrivateRoute authed={ isAuthed } path='/book' component={ Book } />
+            <PrivateRoute authed={ isAuthed } path='/chapter' component={ Chapter } />
           </Switch>
         </div>
       </Router>
@@ -32,6 +33,8 @@ class Routes extends Component {
   }
 }
 
-const mapStateToProps = ({}) => ({})
+const mapStateToProps = ({ auth }) => ({
+  isAuthed: auth.authenticated
+})
 
 export default connect(mapStateToProps)(Routes)
