@@ -5,10 +5,11 @@ import Typography from 'material-ui/Typography';
 import List, { ListItem, ListItemText } from 'material-ui/List'
 import Button from 'material-ui/Button'
 import Divider from 'material-ui/Divider'
+import { connect } from 'react-redux'
 
 import './styles.css'
 
-class Books extends Component {
+class Book extends Component {
   render () {
     return (
       <Container>
@@ -40,4 +41,7 @@ class Books extends Component {
     )
   }
 }
-export default Books
+const mapSateToProps = ({ user }) => ({
+  user: user
+})
+export default connect(mapSateToProps)(Book)

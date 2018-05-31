@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Container, Header } from './styles'
 import List, { ListItem, ListItemText } from 'material-ui/List'
 import Avatar from 'material-ui/Avatar'
+import { connect } from 'react-redux'
 
 class Books extends Component {
   render () {
@@ -22,4 +23,7 @@ class Books extends Component {
     )
   }
 }
-export default Books
+const mapSateToProps = ({ auth }) => ({
+  user: auth.user
+})
+export default connect(mapSateToProps)(Books)

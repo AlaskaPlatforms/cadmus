@@ -52,6 +52,7 @@ class CreateBook extends Component {
           </Grid>
           <Grid item xs={ 12 } lg={ 4 } className='select-padding'>
             <Select label='Gênero' onChange={ this.handleChangeGenre } fullWidth value='1'>
+              <MenuItem value=''>Selecione uma opção</MenuItem>
               <MenuItem value='1'>Terror</MenuItem>
             </Select>
           </Grid>
@@ -83,8 +84,11 @@ class CreateBook extends Component {
     )
   }
 }
+const mapStateToProps = ({ auth }) => ({
+  user: auth.user
+})
 const mapDispatchToProps = dispatch => ({
   attemptAddBook: book => dispatch(Creators.addBookRequest(book))
 })
 
-export default connect(null, mapDispatchToProps)(CreateBook)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateBook)
