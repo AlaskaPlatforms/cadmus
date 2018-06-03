@@ -31,7 +31,7 @@ class CreateBook extends Component {
     event.preventDefault()
     const { title, description, genre } = this.state
     const newBook = { title, description, userId: this.props.user._id }
-    this.props.attemptAddBook(newBook)
+    this.props.attemptAddBook(newBook, this.props.history)
   }
 
   renderInputs () {
@@ -81,7 +81,7 @@ const mapStateToProps = ({ user }) => ({
   user: user.user
 })
 const mapDispatchToProps = dispatch => ({
-  attemptAddBook: book => dispatch(Creators.addBookRequest(book))
+  attemptAddBook: (book, history) => dispatch(Creators.addBookRequest(book, history))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateBook)

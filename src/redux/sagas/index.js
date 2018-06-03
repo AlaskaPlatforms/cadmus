@@ -3,7 +3,7 @@ import { takeLatest } from 'redux-saga/effects'
 import { Types } from './../actions'
 
 import authUser from './auth'
-import { addBook, getBooks, getBook } from './book'
+import { addBook, getBooks, getBook, addChapter } from './book'
 import { registerUser } from './user'
 
 import API from '@/services/API'
@@ -16,6 +16,7 @@ const sagas = function* sagas () {
     takeLatest(Types.ADD_BOOK_REQUEST, addBook, api),
     takeLatest(Types.GET_BOOKS_REQUEST, getBooks, api),
     takeLatest(Types.GET_BOOK_REQUEST, getBook, api),
+    takeLatest(Types.ADD_CHAPTER_REQUEST, addChapter, api),
     takeLatest(Types.USER_REGISTER_REQUEST, registerUser, api),
   ]
 }

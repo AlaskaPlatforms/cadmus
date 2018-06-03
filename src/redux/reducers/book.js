@@ -29,6 +29,12 @@ export const getBookSuccess = (state = INITIAL_STATE, { book }) => state.merge({
 
 export const getBookFailure = (state = INITIAL_STATE, { error }) => state.merge({ error, fetching: false })
 
+export const addChapterRequest = (state = INITIAL_STATE) => state.merge({ writing: true })
+
+export const addChapterSuccess = (state = INITIAL_STATE) => state.merge({ error: false, writing: false })
+
+export const addChapterFailure = (state = INITIAL_STATE, { error }) => state.merge({ error, writing: false })
+
 const HANDLERS = {
   [Types.ADD_BOOK_REQUEST]: addBookRequest,
   [Types.ADD_BOOK_SUCCESS]: addBookSuccess,
@@ -38,7 +44,10 @@ const HANDLERS = {
   [Types.GET_BOOKS_FAILURE]: getBooksFailure,
   [Types.GET_BOOK_REQUEST]: getBookRequest,
   [Types.GET_BOOK_SUCCESS]: getBookSuccess,
-  [Types.GET_BOOK_FAILURE]: getBookFailure
+  [Types.GET_BOOK_FAILURE]: getBookFailure,
+  [Types.ADD_CHAPTER_REQUEST]: addChapterRequest,
+  [Types.ADD_CHAPTER_SUCCESS]: addChapterSuccess,
+  [Types.ADD_CHAPTER_FAILURE]: addChapterFailure
 }
 
 export const reducer = createReducer(INITIAL_STATE, HANDLERS)

@@ -13,6 +13,7 @@ const create = (baseURL = config.apiURL) => {
   const addBook = ({ book: { title, description, userId } }) => api.post(`api/v1/book`, { title, description, userId })
   const getBooks = ({ userId }) => api.get(`api/v1/books/${userId}`, {})
   const getBook = ({ book }) => api.get(`api/v1/book/${book}`, {})
+  const addChapter = ({ chapter: { index, text, bookId } }) => api.post('api/v1/chapter', { index, text, bookId })
   const registerUser = ({ email, username, password }) => api.post(`api/v1/signup`, { email, username, password })
   return {
     checkApiStatus,
@@ -20,6 +21,7 @@ const create = (baseURL = config.apiURL) => {
     addBook,
     getBooks,
     getBook,
+    addChapter,
     registerUser
   }
 }

@@ -1,5 +1,5 @@
 const bookActions = {
-  addBookRequest: ['book'],
+  addBookRequest: ['book', 'history'],
   addBookSuccess: null,
   addBookFailure: ['error'],
   
@@ -9,7 +9,11 @@ const bookActions = {
   
   getBookRequest: ['book'],
   getBookSuccess: ['book'],
-  getBookFailure: ['error']
+  getBookFailure: ['error'],
+
+  addChapterRequest: ['chapter', 'history'],
+  addChapterSuccess: null,
+  addChapterFailure: ['error']
 }
 
 export default bookActions

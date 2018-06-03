@@ -28,14 +28,14 @@ class Book extends Component {
           </Paper>
           <Paper className='paper-wrapper'>
             <Typography variant='headline' component='h3'>Capítulos
-              <Button color='primary' className='btn-chapter'>Adicionar capítulo</Button>
+              <Button color='primary' className='btn-chapter' href={ `/book/${book._id}/chapter` }>Adicionar capítulo</Button>
             </Typography>
           </Paper>
           <Divider/>
           <List>
-            { book.chapters ? book.chapters.map(chapter => (
-              <ListItem divider button>
-                <ListItemText primary={ `Capítulo ${chapter.index}`}/>
+            { book.chapters ? book.chapters.map((chapter, index) => (
+              <ListItem key={ chapter } divider button>
+                <ListItemText primary={ `Capítulo ${index + 1}`}/>
               </ListItem>
             )): <div>Nenhum capitulo ainda</div> }
           </List>

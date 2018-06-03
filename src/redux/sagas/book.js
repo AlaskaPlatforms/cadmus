@@ -1,11 +1,12 @@
 import { call, put } from 'redux-saga/effects'
 import { Creators } from '../actions'
 
-export function* addBook (api, { book }) {
+export function* addBook (api, { book, history }) {
   try {
     const { data, ok } = yield call(api.addBook, { book })
     if (ok) {
       yield put(Creators.addBookSuccess(data))
+      history.push('/books')
     } else {
       const { error } = data
       yield put(Creators.addBookFailure(error))
@@ -40,5 +41,21 @@ export function* getBook (api, { book }) {
     }
   } catch (error) {
     yield put(Creators.getBookFailure(error))
+  }
+}
+
+export function* addChapter (api, { chapter, history }) {
+  console.log(chapter)
+  try {
+    const { data, ok } = yield call(api.addChapter, { chapter })
+    if (ok) {
+      yield put(Creators.addChapterSuccess())
+      history.push(`/book/${chapter.bookId}`)
+    } else {
+      const { error } = data
+      yield put(Creators.addChapterFailure(error))
+    }
+  } catch (error) {
+    yield put(Creators.addChapterFailure(error))
   }
 }
