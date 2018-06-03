@@ -14,9 +14,9 @@ export const INITIAL_STATE = Immutable({
 
 export const authUserRequest = (state = INITIAL_STATE, { ok }) => Object.assign({}, state, { attemptingAuth: true })
 
-export const authUserSuccess = (state = INITIAL_STATE, { token, user }) => state.merge({ attemptingAuth: false, authenticated: true, token, user })
+export const authUserSuccess = (state = INITIAL_STATE, { token, user }) => Object.assign({}, state, { attemptingAuth: false, authenticated: true, token, user })
 
-export const authUserFailure = (state = INITIAL_STATE, { error }) => state.merge({ attemptingAuth: false, authenticated: false, error })
+export const authUserFailure = (state = INITIAL_STATE, { error }) => Object.assign({}, state, { attemptingAuth: false, authenticated: false, error })
 
 export const unauthUser = () => INITIAL_STATE
 

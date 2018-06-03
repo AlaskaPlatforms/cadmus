@@ -10,7 +10,7 @@ export const INITIAL_STATE = Immutable({
   user: {}
 })
 
-export const storeUserInfo = (state = INITIAL_STATE, { user }) => state.merge({ user })
+export const storeUserInfo = (state = INITIAL_STATE, { user }) => Object.assign({}, state, { user })
 
 export const userRegisterRequest = (state = INITIAL_STATE, { ok }) => state.merge({ registering: true })
 

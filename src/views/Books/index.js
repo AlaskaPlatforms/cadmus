@@ -7,7 +7,8 @@ import { Creators } from '@redux/actions'
 
 class Books extends Component {
   componentWillMount () {
-    this.props.attemptGetBooks(this.props.user._id)
+    const { user: {_id } } = this.props
+    this.props.attemptGetBooks(_id)
   }
 
   render () {
