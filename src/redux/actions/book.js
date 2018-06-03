@@ -6,6 +6,10 @@ const bookActions = {
   getBooksRequest: ['userId'],
   getBooksSuccess: ['books'],
   getBooksFailure: ['error'],
+  
+  getBookRequest: ['book'],
+  getBookSuccess: ['book'],
+  getBookFailure: ['error']
 }
 
 export default bookActions

@@ -24,7 +24,7 @@ class Routes extends Component {
             <Route path='/login' component={ Login } />
             <PrivateRoute authed={ isAuthed } path='/new-book' component={ CreateBook } />
             <PrivateRoute authed={ isAuthed } path='/books' component={ Books } />
-            <PrivateRoute authed={ isAuthed } path='/book' component={ Book } />
+            <PrivateRoute authed={ isAuthed } path='/book/:book' component={ Book } />
             <PrivateRoute authed={ isAuthed } path='/chapter' component={ Chapter } />
           </Switch>
         </div>

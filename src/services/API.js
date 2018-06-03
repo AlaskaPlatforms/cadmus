@@ -12,12 +12,14 @@ const create = (baseURL = config.apiURL) => {
   const authUser = ({ email, password }) => api.post(`api/v1/auth`, { email, password }).then(response => response)
   const addBook = ({ book: { title, description, userId } }) => api.post(`api/v1/book`, { title, description, userId })
   const getBooks = ({ userId }) => api.get(`api/v1/books/${userId}`, {})
+  const getBook = ({ book }) => api.get(`api/v1/book/${book}`, {})
   const registerUser = ({ email, username, password }) => api.post(`api/v1/signup`, { email, username, password })
   return {
     checkApiStatus,
     authUser,
     addBook,
     getBooks,
+    getBook,
     registerUser
   }
 }

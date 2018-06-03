@@ -6,42 +6,50 @@ import List, { ListItem, ListItemText } from 'material-ui/List'
 import Button from 'material-ui/Button'
 import Divider from 'material-ui/Divider'
 import { connect } from 'react-redux'
+import { Creators } from '@redux/actions'
 
 import './styles.css'
 
 class Book extends Component {
+  componentWillMount () {
+    const { params: { book } } = this.props.match
+    this.props.attemptGetBook(book) 
+  }
   render () {
-    return (
-      <Container>
-        <Header>Título</Header>
-        <Paper className='paper-wrapper'>
-          <Typography component="p">
-            Descição Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Vestibulum quis eros porta, bibendum velit ac, iaculis mi. 
-            Suspendisse hendrerit a quam at vestibulum. Proin eget justo ac augue iaculis consequat. 
-            Quisque nec mauris vestibulum, consequat tellus in, commodo nunc. 
-            Nulla porta tellus eros, ac placerat magna aliquet ultricies.
-          </Typography>
-        </Paper>
-        <Paper className='paper-wrapper'>
-          <Typography variant='headline' component='h3'>Capítulos
-            <Button color='primary' className='btn-chapter'>Adicionar capítulo</Button>
-          </Typography>
-        </Paper>
-        <Divider/>
-        <List>
-          <ListItem divider button>
-            <ListItemText primary='Capítulo I'/>
-          </ListItem>
-          <ListItem divider button>
-            <ListItemText primary='Capítulo II'/>
-          </ListItem>
-        </List>
-      </Container>
-    )
+    const { book } = this.props
+    if (book) {
+      return (
+        <Container>
+          <Header>{ book.title }</Header>
+          <Paper className='paper-wrapper'>
+            <Typography component="p">
+              { book.description }
+            </Typography>
+          </Paper>
+          <Paper className='paper-wrapper'>
+            <Typography variant='headline' component='h3'>Capítulos
+              <Button color='primary' className='btn-chapter'>Adicionar capítulo</Button>
+            </Typography>
+          </Paper>
+          <Divider/>
+          <List>
+            { book.chapters ? book.chapters.map(chapter => (
+              <ListItem divider button>
+                <ListItemText primary={ `Capítulo ${chapter.index}`}/>
+              </ListItem>
+            )): <div>Nenhum capitulo ainda</div> }
+          </List>
+        </Container>
+      )
+    }
+    return <div>Carregando...</div>
   }
 }
-const mapSateToProps = ({ user }) => ({
-  user: user
+const mapSateToProps = ({ user, book }) => ({
+  user: user,
+  book: book.book
 })
-export default connect(mapSateToProps)(Book)
+const mapDispatchToProps = dispatch => ({
+  attemptGetBook: book => dispatch(Creators.getBookRequest(book))
+})
+export default connect(mapSateToProps, mapDispatchToProps)(Book)
