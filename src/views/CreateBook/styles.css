@@ -6,3 +6,7 @@
 .select-padding {
   padding-top: 28px !important;
 }
+
+.dark {
+  background-color: #f1f1f1;
+} 

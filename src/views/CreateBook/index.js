@@ -18,40 +18,33 @@ class CreateBook extends Component {
     super(props)
     this.state = {
       title: '',
-      genre: '',
+      genre: '0',
       description: ''
     }
   }
 
-  handleChangeTitle = ({ target: { value } }) => {
-    this.setState({ title: value })
-  }
-
-  handleChangeGenre = ({ target: { value } }) => {
-    this.setState({ genre: value })
-  }
-
-  handleChangeDescription = ({ target: { value } }) => {
-    this.setState({ description: value })
+  handleInputChange = ({ target: { value, name } }) => {
+    this.setState(state => ({...state, [name]: value }))
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
     const { title, description, genre } = this.state
-    const newBook = { title, description, genre }
-    this.props.attemptAddBook(newBook)
+    const newBook = { title, description, userId: this.props.user._id }
+    this.props.attemptAddBook(newBook, this.props.history)
   }
 
   renderInputs () {
     const { title, genre, description } = this.state
     return (
-      <Form onSubmit={ this.handleSubmit }>
+      <Form onSubmit={ this.handleSubmit } className='dark'>
         <Grid container spacing={ 24 }>
-        <Grid item xs={ 12 } lg={ 8 }>
-          <TextField fullWidth label='Título' onChange={ this.handleChangeTitle }/>
-        </Grid>
+          <Grid item xs={ 12 } lg={ 8 }>
+            <TextField name='title' fullWidth label='Título' onChange={ this.handleInputChange }/>
+          </Grid>
           <Grid item xs={ 12 } lg={ 4 } className='select-padding'>
-            <Select label='Gênero' onChange={ this.handleChangeGenre } fullWidth value='1'>
+            <Select name='genre' label='Gênero' onChange={ this.handleInputChange } fullWidth value={ genre }>
+              <MenuItem value='0'>Selecione uma opção</MenuItem>
               <MenuItem value='1'>Terror</MenuItem>
             </Select>
           </Grid>
@@ -59,10 +52,11 @@ class CreateBook extends Component {
         <Grid container spacing={ 24 }>
           <Grid item xs={ 12 }>
             <TextField
+              name='description'
               label='Descrição'
               multiline
               fullWidth
-              onChange={ this.handleChangeDescription }
+              onChange={ this.handleInputChange }
             />
           </Grid>
         </Grid>
@@ -83,8 +77,11 @@ class CreateBook extends Component {
     )
   }
 }
+const mapStateToProps = ({ user }) => ({
+  user: user.user
+})
 const mapDispatchToProps = dispatch => ({
-  attemptAddBook: book => dispatch(Creators.addBookRequest(book))
+  attemptAddBook: (book, history) => dispatch(Creators.addBookRequest(book, history))
 })
 
-export default connect(null, mapDispatchToProps)(CreateBook)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateBook)
