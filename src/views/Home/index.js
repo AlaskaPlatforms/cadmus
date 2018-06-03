@@ -97,7 +97,7 @@ export default class Home extends Component {
     return (
       <Main>
         <Header>
-          <HeaderNav>
+          <HeaderNav className='clearfix'>
             <HeaderContainer>
               <HeaderLogo src='https://raw.githubusercontent.com/AlaskaPlatforms/cadmus/feature/login/src/assets/img/logo.png' alt='cadmus.com logo' />
               <HeaderMenu>
@@ -117,7 +117,7 @@ export default class Home extends Component {
           <CadmusMessageImg src='https://raw.githubusercontent.com/AlaskaPlatforms/cadmus/feature/login/src/assets/img/logo-full.png' alt="pagina da web que mostra como publicar obras" />
         </CadmusMessage>
         <Footer>
-          <FooterNav>
+          <FooterNav className='clearfix'>
             <HeaderContainer>
               <FooterCopyright>© 2018 TADS</FooterCopyright>
               <FooterMenu>
