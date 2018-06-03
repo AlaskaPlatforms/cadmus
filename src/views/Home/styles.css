@@ -1,29 +1,8 @@
-a, body, div, footer, h1, h2, header, html, img, nav, p, span, table, td, th, tr {
+a, body, div, footer, header, html, img, nav, p, span, table, td, th, tr {
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-}
-
-h1, h2 {
-	-webkit-perspective: 800px;
-	perspective: 800px;
-}
-
-h1 {
-	font-family: inherit;
-	font-size: 66px;
-	color: rgb(86, 156, 214);
-	margin-bottom: 26px;
-}
-
-h2 {
-	font-family: inherit;
-	font-size: 30px;
-	color: rgba(86, 156, 214, 0.8);
-	letter-spacing: 0;
-	line-height: 46px;
-	margin-bottom: 54px;
 }

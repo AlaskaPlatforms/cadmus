@@ -18,7 +18,9 @@ import
     FooterMenu,
     LinkButtonFixedFooter,
     ButtonLargeWhite,
-    ButtonLargeBlue
+    ButtonLargeBlue,
+    H1,
+    H2
   } from './styles'
 
 import './styles.css'
@@ -60,15 +62,15 @@ export default class Home extends Component {
   hero() {
     return (
       <div>
-        <h1>Seja um escritor!</h1>
-        <h2>
+        <H1>Seja um escritor!</H1>
+        <H2>
           <span>
             CADMUS é a maneira mais fácil de publicar suas obras<br/>
           </span>
           <span>
             e descobrir novas obras!
           </span>
-        </h2>
+        </H2>
         <div>
           <ButtonLargeWhite role="button">Leitor</ButtonLargeWhite>
           <ButtonLargeBlue role="button" onClick = {() => this.loginClick()}>Escritor</ButtonLargeBlue>
@@ -80,15 +82,15 @@ export default class Home extends Component {
   message() {
     return (
       <div>
-        <h1>Suas obras em um único lugar</h1>
-        <h2>
+        <H1>Suas obras em um único lugar</H1>
+        <H2>
           <span>
             Crie novas obras.<br/>
           </span>
           <span>
             Descubra novas obras.<br/>
           </span>
-        </h2>      
+        </H2>      
       </div>
     )
   }

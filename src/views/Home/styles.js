@@ -150,3 +150,31 @@ export const ButtonLargeBlue = styled.div`
   margin-left: 40px;
   cursor: pointer;
 `
+
+export const H1 = styled.h1 `
+  font-family: inherit;
+  font-size: 66px;
+  color: rgb(86, 156, 214);
+  margin-bottom: 26px;
+	-webkit-perspective: 800px;
+  perspective: 800px; 
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;   
+`
+
+export const H2 = styled.h2`
+  font-family: inherit;
+  font-size: 30px;
+  color: rgba(86, 156, 214, 0.8);
+  letter-spacing: 0;
+  line-height: 46px;
+  margin-bottom: 54px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;  
+	-webkit-perspective: 800px;
+	perspective: 800px;  
+`
