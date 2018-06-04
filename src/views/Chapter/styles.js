@@ -18,6 +18,7 @@ export const TextArea = styled.textarea`
   display: inline-block;
   width: 99%;
   border-radius: 3px;
+  height: 100%;
   font: inherit;
   padding-top: 5px;
   padding-left: 5px;
@@ -32,6 +33,11 @@ export const TextArea = styled.textarea`
     padding-top: 4px;
     padding-left: 4px;
   }
+  ${props => props.error ? `
+    border: 2px solid ${COLORS.RED};
+  ` : `
+    border: 2px solid ${COLORS.BLACK}
+  `}
 `
 export const ButtonContainer = styled.div`
   display: inline-block;

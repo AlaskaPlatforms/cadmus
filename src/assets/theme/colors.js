@@ -4,7 +4,9 @@ const COLORS = {
   TEXT: '#1E1E1E',
   DARK_BLUE: '#0D47A1',
   DARK: '#555555',
-  DARKER: '#333333'
+  DARKER: '#333333',
+  RED: '#E53737',
+  BLACK: '#000000'
 }
 
 export default COLORS
