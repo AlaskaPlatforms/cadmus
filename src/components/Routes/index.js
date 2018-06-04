@@ -24,6 +24,10 @@ class Routes extends Component {
           <Switch>
             <Route path='/login' component={ Login } />
             <Route exact path='/' component={ Home } />
+<<<<<<< HEAD
+=======
+            <Route extact path='/sidebar' component={ Sidebar }/>
+>>>>>>> master
             <PrivateRoute authed={ isAuthed } path='/new-book' component={ CreateBook } />
             <PrivateRoute authed={ isAuthed } path='/books' component={ Books } />
             <PrivateRoute exact authed={ isAuthed } path='/book/:book' component={ Book } />
