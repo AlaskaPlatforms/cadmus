@@ -7,6 +7,8 @@ import Grid from 'material-ui/Grid'
 import { connect } from 'react-redux'
 import { Creators } from '@redux/actions'
 
+import Sidebar from '@views/Sidebar'
+
 class Chapter extends Component {
   constructor (props) {
     super(props)
@@ -35,32 +37,35 @@ class Chapter extends Component {
   render () {
     const { index, text } = this.state
     return (
-      <Container>
-        <Header>Escrevendo capítulo...</Header>
-        <InnerContainer>
-        <Grid container spacing={ 24 }> 
-            <Grid item xs={ 12 }>
-              <TextField type='number' name='index' value={ index } label='Numero do capítulo' fullWidth  onChange={ this.handleInputChange }/>
+      <div>
+        <Sidebar/>
+        <Container>
+          <Header>Escrevendo capítulo...</Header>
+          <InnerContainer>
+          <Grid container spacing={ 24 }> 
+              <Grid item xs={ 12 }>
+                <TextField type='number' name='index' value={ index } label='Numero do capítulo' fullWidth  onChange={ this.handleInputChange }/>
+              </Grid>
             </Grid>
-          </Grid>
-          <Grid container spacing={ 24 }>
-            <Grid item xs={ 12 }>  
-              <TextArea
-                name='text'
-                value={ text }
-                rows='20'
-                placeholder='Escreva aqui sua história...'
-                onChange={ this.handleInputChange }  
-              >
-              </TextArea>
+            <Grid container spacing={ 24 }>
+              <Grid item xs={ 12 }>  
+                <TextArea
+                  name='text'
+                  value={ text }
+                  rows='20'
+                  placeholder='Escreva aqui sua história...'
+                  onChange={ this.handleInputChange }  
+                >
+                </TextArea>
+              </Grid>
             </Grid>
-          </Grid>
-          <ButtonContainer>
-            <Button type='submit' className='btn-custom' variant='flat' onClick={ this.handleSubmit }>Salvar</Button>
-            <Button className='btn-custom' variant='flat'>Cancelar</Button>
-        </ButtonContainer>
-        </InnerContainer>
-      </Container>
+            <ButtonContainer>
+              <Button type='submit' className='btn-custom' variant='flat' onClick={ this.handleSubmit }>Salvar</Button>
+              <Button className='btn-custom' variant='flat'>Cancelar</Button>
+          </ButtonContainer>
+          </InnerContainer>
+        </Container>
+      </div>
     )
   }
 }

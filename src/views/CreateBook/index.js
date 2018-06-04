@@ -9,6 +9,8 @@ import Select from 'material-ui/Select'
 import Button from 'material-ui/Button'
 import { MenuItem } from 'material-ui/Menu'
 
+import Sidebar from '@views/Sidebar'
+
 import { Form, Header, Container, ButtonContainer } from './styles'
 
 import './styles.css'
@@ -37,34 +39,37 @@ class CreateBook extends Component {
   renderInputs () {
     const { title, genre, description } = this.state
     return (
-      <Form onSubmit={ this.handleSubmit }>
-        <Grid container spacing={ 24 }>
-          <Grid item xs={ 12 } lg={ 8 }>
-            <TextField name='title' fullWidth label='Título' onChange={ this.handleInputChange }/>
+      <div>
+        <Sidebar/>
+        <Form onSubmit={ this.handleSubmit }>
+          <Grid container spacing={ 24 }>
+            <Grid item xs={ 12 } lg={ 8 }>
+              <TextField name='title' fullWidth label='Título' onChange={ this.handleInputChange }/>
+            </Grid>
+            <Grid item xs={ 12 } lg={ 4 } className='select-padding'>
+              <Select name='genre' label='Gênero' onChange={ this.handleInputChange } fullWidth value={ genre }>
+                <MenuItem value='0'>Selecione uma opção</MenuItem>
+                <MenuItem value='1'>Terror</MenuItem>
+              </Select>
+            </Grid>
           </Grid>
-          <Grid item xs={ 12 } lg={ 4 } className='select-padding'>
-            <Select name='genre' label='Gênero' onChange={ this.handleInputChange } fullWidth value={ genre }>
-              <MenuItem value='0'>Selecione uma opção</MenuItem>
-              <MenuItem value='1'>Terror</MenuItem>
-            </Select>
+          <Grid container spacing={ 24 }>
+            <Grid item xs={ 12 }>
+              <TextField
+                name='description'
+                label='Descrição'
+                multiline
+                fullWidth
+                onChange={ this.handleInputChange }
+              />
+            </Grid>
           </Grid>
-        </Grid>
-        <Grid container spacing={ 24 }>
-          <Grid item xs={ 12 }>
-            <TextField
-              name='description'
-              label='Descrição'
-              multiline
-              fullWidth
-              onChange={ this.handleInputChange }
-            />
-          </Grid>
-        </Grid>
-        <ButtonContainer>
-          <Button type='submit' className='btn-custom' variant='flat'>Salvar</Button>
-          <Button className='btn-custom' variant='flat'>Cancelar</Button>
-        </ButtonContainer>
-      </Form>
+          <ButtonContainer>
+            <Button type='submit' className='btn-custom' variant='flat'>Salvar</Button>
+            <Button className='btn-custom' variant='flat'>Cancelar</Button>
+          </ButtonContainer>
+        </Form>
+      </div>
     )
   }
 

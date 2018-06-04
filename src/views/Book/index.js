@@ -7,6 +7,7 @@ import Button from 'material-ui/Button'
 import Divider from 'material-ui/Divider'
 import { connect } from 'react-redux'
 import { Creators } from '@redux/actions'
+import Sidebar from '@views/Sidebar'
 
 import './styles.css'
 
@@ -19,27 +20,30 @@ class Book extends Component {
     const { book } = this.props
     if (book) {
       return (
-        <Container>
-          <Header>{ book.title }</Header>
-          <Paper className='paper-wrapper'>
-            <Typography component="p">
-              { book.description }
-            </Typography>
-          </Paper>
-          <Paper className='paper-wrapper'>
-            <Typography variant='headline' component='h3'>Capítulos
-              <Button color='primary' className='btn-chapter' href={ `/book/${book._id}/chapter` }>Adicionar capítulo</Button>
-            </Typography>
-          </Paper>
-          <Divider/>
-          <List>
-            { book.chapters ? book.chapters.map((chapter, index) => (
-              <ListItem key={ chapter } divider button>
-                <ListItemText primary={ `Capítulo ${index + 1}`}/>
-              </ListItem>
-            )): <div>Nenhum capitulo ainda</div> }
-          </List>
-        </Container>
+        <div>
+          <Sidebar/>
+          <Container>
+            <Header>{ book.title }</Header>
+            <Paper className='paper-wrapper'>
+              <Typography component="p">
+                { book.description }
+              </Typography>
+            </Paper>
+            <Paper className='paper-wrapper'>
+              <Typography variant='headline' component='h3'>Capítulos
+                <Button color='primary' className='btn-chapter' href={ `/book/${book._id}/chapter` }>Adicionar capítulo</Button>
+              </Typography>
+            </Paper>
+            <Divider/>
+            <List>
+              { book.chapters ? book.chapters.map((chapter, index) => (
+                <ListItem key={ chapter } divider button>
+                  <ListItemText primary={ `Capítulo ${index + 1}`}/>
+                </ListItem>
+              )): <div>Nenhum capitulo ainda</div> }
+            </List>
+          </Container>
+        </div>
       )
     }
     return <div>Carregando...</div>
