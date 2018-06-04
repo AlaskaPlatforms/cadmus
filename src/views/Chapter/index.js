@@ -83,7 +83,7 @@ class Chapter extends Component {
                   error={ errorText }
                   name='text'
                   value={ text }
-                  rows='10'
+                  rows='20'
                   placeholder='Escreva aqui sua história...'
                   onChange={ this.handleInputChange }  
                 >
