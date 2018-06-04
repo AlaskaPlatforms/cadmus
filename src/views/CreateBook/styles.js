@@ -1,15 +1,17 @@
 import styled from 'styled-components'
-import { COLORS } from '@assets/theme/Colors'
+import COLORS from '@assets/theme/colors'
+
+const { WHITE, DARK_BLUE } = COLORS
 
 export const Form = styled.form`
   top: 0;
   padding: 15px;
-  color: ${COLORS.WHITE};
+  color: ${WHITE};
 `
 export const Header = styled.h1`
   padding: 15px;
-  color: ${COLORS.WHITE};
-  background-color: ${COLORS.DARK_BLUE};
+  color: ${WHITE};
+  background-color: ${DARK_BLUE};
   border-radius: 5px 5px 0 0;
   margin: 0;
 `
@@ -18,7 +20,7 @@ export const Container = styled.div`
   border-radius: 5px;
   width: 60%;
   margin: 15px auto;
-  background-color: ${COLORS.WHITE};
+  background-color: ${WHITE};
 `
 export const ButtonContainer = styled.div`
   display: inline-block;

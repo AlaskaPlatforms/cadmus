@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { SideBar, Items , Item, Container, Panel, Header, UserIcon } from './styles'
-import Input from '@utils/form/Input'
-import TextArea from '@utils/form/TextArea'
 
 
 export default class  UserPanel extends Component {
@@ -26,9 +24,6 @@ export default class  UserPanel extends Component {
         <Header>User Info</Header>
           <Panel>
             <form action=''>
-              <Input type='text' label='UserName' name='usernickname' />
-              <Input type='text' label='Name' name ='username'/>
-              <Input type='text' label='Email' name='email' />
             </form>
           </Panel>
         </Container>

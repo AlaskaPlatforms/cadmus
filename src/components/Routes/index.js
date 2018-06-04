@@ -8,22 +8,25 @@ import PrivateRoute from '@components/PrivateRoute'
 
 import Login from '@views/Login'
 import Home from '@views/Home'
-import UserPanel from '@views/UserPanel'
 import CreateBook from '@views/CreateBook'
+import Books from '@views/Books'
 import Book from '@views/Book'
+import Chapter from '@views/Chapter'
 
 class Routes extends Component {
   render () {
+    const { isAuthed } = this.props
     return (
       <Router>
         <div>
           <Switch>
             <Route path='/login' component={ Login } />
-            <Route path='/' component={ UserPanel } />
-            <Route path='/user' component={ UserPanel }/>
             <Route exact path='/' component={ Home } />
-            <Route path='/new-book' component={ CreateBook } />
-            <Route path='/book' component={ Book } />
+            <Route path='/login' component={ Login } />
+            <PrivateRoute authed={ isAuthed } path='/new-book' component={ CreateBook } />
+            <PrivateRoute authed={ isAuthed } path='/books' component={ Books } />
+            <PrivateRoute exact authed={ isAuthed } path='/book/:book' component={ Book } />
+            <PrivateRoute exact authed={ isAuthed } path='/book/:bookId/chapter' component={ Chapter } />
           </Switch>
         </div>
       </Router>
@@ -31,6 +34,8 @@ class Routes extends Component {
   }
 }
 
-const mapStateToProps = ({}) => ({})
+const mapStateToProps = ({ auth }) => ({
+  isAuthed: auth.authenticated
+})
 
 export default connect(mapStateToProps)(Routes)

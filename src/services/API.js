@@ -9,13 +9,20 @@ const create = (baseURL = config.apiURL) => {
   })
 
   const checkApiStatus = () => api.get('/')
-  const authUser = ({ userName, password }) => api.post(`${baseURL}/loginService/loginMobile`, { userName, password }).then(response => response)
-  const addBook = ({ book }) => api.post(`${baseURL}/api/v1/book`, { title: book.title, description: book.description })
-  
+  const authUser = ({ email, password }) => api.post(`api/v1/auth`, { email, password }).then(response => response)
+  const addBook = ({ book: { title, description, userId } }) => api.post(`api/v1/book`, { title, description, userId })
+  const getBooks = ({ userId }) => api.get(`api/v1/books/${userId}`, {})
+  const getBook = ({ book }) => api.get(`api/v1/book/${book}`, {})
+  const addChapter = ({ chapter: { index, text, bookId } }) => api.post('api/v1/chapter', { index, text, bookId })
+  const registerUser = ({ email, username, password }) => api.post(`api/v1/signup`, { email, username, password })
   return {
     checkApiStatus,
     authUser,
-    addBook
+    addBook,
+    getBooks,
+    getBook,
+    addChapter,
+    registerUser
   }
 }
 
