@@ -37,7 +37,7 @@ class CreateBook extends Component {
   renderInputs () {
     const { title, genre, description } = this.state
     return (
-      <Form onSubmit={ this.handleSubmit } className='dark'>
+      <Form onSubmit={ this.handleSubmit }>
         <Grid container spacing={ 24 }>
           <Grid item xs={ 12 } lg={ 8 }>
             <TextField name='title' fullWidth label='Título' onChange={ this.handleInputChange }/>

@@ -2,7 +2,9 @@ const COLORS = {
   BACKGROUND: '#1565C0',
   WHITE: '#FFFFFF',
   TEXT: '#1E1E1E',
-  DARK_BLUE: '#0D47A1'
+  DARK_BLUE: '#0D47A1',
+  DARK: '#555555',
+  DARKER: '#333333'
 }
 
 export default COLORS

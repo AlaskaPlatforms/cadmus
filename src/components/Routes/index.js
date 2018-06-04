@@ -12,6 +12,7 @@ import CreateBook from '@views/CreateBook'
 import Books from '@views/Books'
 import Book from '@views/Book'
 import Chapter from '@views/Chapter'
+import Sidebar from '@views/Sidebar'
 
 class Routes extends Component {
   render () {
@@ -19,9 +20,11 @@ class Routes extends Component {
     return (
       <Router>
         <div>
+          <Sidebar/>
           <Switch>
-            <Route exact path='/' component={ Home } />
             <Route path='/login' component={ Login } />
+            <Route exact path='/' component={ Home } />
+            <Route extact path='/sidebar' component={ Sidebar }/>
             <PrivateRoute authed={ isAuthed } path='/new-book' component={ CreateBook } />
             <PrivateRoute authed={ isAuthed } path='/books' component={ Books } />
             <PrivateRoute exact authed={ isAuthed } path='/book/:book' component={ Book } />
