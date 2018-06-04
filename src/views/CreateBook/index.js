@@ -21,30 +21,57 @@ class CreateBook extends Component {
     this.state = {
       title: '',
       genre: '0',
-      description: ''
+      description: '',
+      errorTitle: false,
+      errorDescription: false
     }
   }
 
+  capitalizeFirstLetter = (value) => 
+    value.charAt(0).toUpperCase() + value.slice(1)
+
   handleInputChange = ({ target: { value, name } }) => {
-    this.setState(state => ({...state, [name]: value }))
+    const error = `error${this.capitalizeFirstLetter(name)}`
+    this.setState(state => ({...state, [name]: value, [error]: false }))
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
     const { title, description, genre } = this.state
-    const newBook = { title, description, userId: this.props.user._id }
-    this.props.attemptAddBook(newBook, this.props.history)
+    let valid = true
+
+    if (title.length < 4) {
+      valid = false
+      this.setState(state => ({...state, errorTitle: true }))
+    }
+
+    if (description.length < 6) {
+      valid = false
+      this.setState(state => ({...state, errorDescription: true }))
+    }
+    
+    if (valid) {
+      const newBook = { title, description, userId: this.props.user._id }
+      this.props.attemptAddBook(newBook, this.props.history)
+    }
   }
 
   renderInputs () {
-    const { title, genre, description } = this.state
+    const { title, genre, description, errorTitle, errorDescription } = this.state
     return (
       <div>
         <Sidebar/>
         <Form onSubmit={ this.handleSubmit }>
           <Grid container spacing={ 24 }>
             <Grid item xs={ 12 } lg={ 8 }>
-              <TextField name='title' fullWidth label='Título' onChange={ this.handleInputChange }/>
+              <TextField
+                name='title'
+                error={ errorTitle }
+                fullWidth
+                label='Título'
+                onChange={ this.handleInputChange }
+                helperText={ errorTitle ? 'Obrigatório! Minímo 4 caracteres' : ''}
+                />
             </Grid>
             <Grid item xs={ 12 } lg={ 4 } className='select-padding'>
               <Select name='genre' label='Gênero' onChange={ this.handleInputChange } fullWidth value={ genre }>
@@ -56,8 +83,10 @@ class CreateBook extends Component {
           <Grid container spacing={ 24 }>
             <Grid item xs={ 12 }>
               <TextField
+                error={ errorDescription }
                 name='description'
                 label='Descrição'
+                helperText={ errorDescription ? 'Obrigatório! Minímo 6 caracteres!' : '' }
                 multiline
                 fullWidth
                 onChange={ this.handleInputChange }
