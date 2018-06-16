@@ -35,6 +35,12 @@ class CreateBook extends Component {
     this.setState(state => ({...state, [name]: value, [error]: false }))
   }
 
+  comeBack() {
+    return (
+      this.props.history.push('books')
+    )    
+  }
+
   handleSubmit = (event) => {
     event.preventDefault()
     const { title, description, genre } = this.state
@@ -95,7 +101,7 @@ class CreateBook extends Component {
           </Grid>
           <ButtonContainer>
             <Button type='submit' className='btn-custom' variant='flat'>Salvar</Button>
-            <Button className='btn-custom' variant='flat'>Cancelar</Button>
+            <Button className='btn-custom' variant='flat' onClick = {() => this.comeBack()}>Cancelar</Button>
           </ButtonContainer>
         </Form>
       </div>

@@ -5,7 +5,7 @@ export const SideBar = styled.div`
   position: fixed;
   left: 0;
   top: 0;
-  width: 250px;
+  width: ${props => props.active ? '250px' : '60px'};
   min-height: 100%;
   z-index: 100;
   background-color: ${COLORS.DARKER};
@@ -44,4 +44,9 @@ export const Item = styled.li`
 export const Container = styled.div`
   height: 90%;
   padding: 15px;
+`
+
+export const Menu = styled.div`
+  cursor: pointer;
+  color: ${COLORS.WHITE};
 `
