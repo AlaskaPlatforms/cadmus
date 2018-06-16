@@ -14,28 +14,49 @@ class Chapter extends Component {
     super(props)
     this.state = {
       index: '',
-      text: ''
+      text: '',
+      errorIndex: false,
+      errorText: false
     }
   }
 
+  capitalizeFirstLetter = (value) => 
+    value.charAt(0).toUpperCase() + value.slice(1)
+
   handleInputChange = ({ target: { value, name } }) => {
-    this.setState(state => ({...state, [name]: value }))
+    const error = `error${this.capitalizeFirstLetter(name)}`
+    this.setState(state => ({...state, [name]: value, [error]: false }))
   }
 
   handleSubmit = () => {
     const { book } = this.props
     const { index, text } = this.state
     const { bookId } = this.props.match.params
-    const newChapter = {
-      bookId,
-      text: text,
-      index: parseInt(index)
+    let valid = true
+
+    if (index.length < 1) {
+      valid = false
+      this.setState(state => ({...state, errorIndex: true }))
     }
-    this.props.attemptAddChapter(newChapter, this.props.history)
+
+    if (text.length < 50) {
+      valid = false
+      this.setState(state => ({...state, errorText: true }))
+    }
+
+    if (valid) {
+      const newChapter = {
+        bookId,
+        text: text,
+        index: parseInt(index)
+      }
+      this.props.attemptAddChapter(newChapter, this.props.history)
+    }
+
   }
 
   render () {
-    const { index, text } = this.state
+    const { index, text, errorText, errorIndex } = this.state
     return (
       <div>
         <Sidebar/>
@@ -44,12 +65,22 @@ class Chapter extends Component {
           <InnerContainer>
           <Grid container spacing={ 24 }> 
               <Grid item xs={ 12 }>
-                <TextField type='number' name='index' value={ index } label='Numero do capítulo' fullWidth  onChange={ this.handleInputChange }/>
+                <TextField
+                  type='number'
+                  name='index'
+                  value={ index }
+                  label='Numero do capítulo'
+                  fullWidth 
+                  onChange={ this.handleInputChange }
+                  error={ errorIndex }
+                  helperText={ errorIndex ? 'Obrigatório!' : '' }
+                />
               </Grid>
             </Grid>
             <Grid container spacing={ 24 }>
-              <Grid item xs={ 12 }>  
+              <Grid item xs={ 12 }>
                 <TextArea
+                  error={ errorText }
                   name='text'
                   value={ text }
                   rows='20'

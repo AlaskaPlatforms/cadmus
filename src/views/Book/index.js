@@ -16,6 +16,7 @@ class Book extends Component {
     const { params: { book } } = this.props.match
     this.props.attemptGetBook(book) 
   }
+  
   render () {
     const { book } = this.props
     if (book) {

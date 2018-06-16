@@ -2,11 +2,11 @@ import styled from 'styled-components'
 import COLORS from '@assets/theme/colors'
 
 export const SideBar = styled.div`
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 250px;
-  height: 100%;
+  min-height: 100%;
   z-index: 100;
   background-color: ${COLORS.DARKER};
   display: flex;
