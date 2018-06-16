@@ -7,6 +7,7 @@ export const INITIAL_STATE = Immutable({
   error: false,
   writing: false,
   fetching: false,
+  updating: false,
   books: [],
   book: {},
   chapter: {}
@@ -42,6 +43,12 @@ export const getChapterSuccess = (state = INITIAL_STATE, { chapter }) => state.m
 
 export const getChapterFailure = (state = INITIAL_STATE, { error }) => state.merge({ fetching: false, error })
 
+export const updateChapterRequest = (state = INITIAL_STATE) => state.merge({ updating: true })
+
+export const updateChapterSuccess = (state = INITIAL_STATE) => state.merge({ updating: false })
+
+export const updateChapterFailure = (state = INITIAL_STATE, { error }) => state.merge({ updating: false, error })
+
 const HANDLERS = {
   [Types.ADD_BOOK_REQUEST]: addBookRequest,
   [Types.ADD_BOOK_SUCCESS]: addBookSuccess,
@@ -57,7 +64,10 @@ const HANDLERS = {
   [Types.ADD_CHAPTER_FAILURE]: addChapterFailure,
   [Types.GET_CHAPTER_REQUEST]: getChapterRequest,
   [Types.GET_CHAPTER_SUCCESS]: getChapterSuccess,
-  [Types.GET_CHAPTER_FAILURE]: getChapterFailure
+  [Types.GET_CHAPTER_FAILURE]: getChapterFailure,
+  [Types.UPDATE_CHAPTER_REQUEST]: updateChapterRequest,
+  [Types.UPDATE_CHAPTER_SUCCESS]: updateChapterSuccess,
+  [Types.UPDATE_CHAPTER_FAILURE]: updateChapterFailure
 }
 
 export const reducer = createReducer(INITIAL_STATE, HANDLERS)

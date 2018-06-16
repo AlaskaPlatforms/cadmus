@@ -42,15 +42,9 @@ class Chapter extends Component {
   }
 
   handleSubmit = () => {
-    const { book } = this.props
     const { index, text } = this.state
-    const { bookId } = this.props.match.params
+    const { params: { chapterId } } = this.props.match
     let valid = true
-
-    if (index.length < 1) {
-      valid = false
-      this.setState(state => ({...state, errorIndex: true }))
-    }
 
     if (text.length < 50) {
       valid = false
@@ -59,11 +53,10 @@ class Chapter extends Component {
 
     if (valid) {
       const newChapter = {
-        bookId,
-        text: text,
-        index: parseInt(index)
+        chapterId,
+        text: text
       }
-      this.props.attemptAddChapter(newChapter, this.props.history)
+      this.props.attemptUpdateChapter(newChapter)
     }
 
   }
@@ -83,7 +76,8 @@ class Chapter extends Component {
                   name='index'
                   value={ index }
                   label='Numero do capítulo'
-                  fullWidth 
+                  fullWidth
+                  disabled
                   onChange={ this.handleInputChange }
                   error={ errorIndex }
                   helperText={ errorIndex ? 'Obrigatório!' : '' }
@@ -118,6 +112,7 @@ const mapSateToProps = ({ user, book }) => ({
   chapter: book.chapter
 })
 const mapDispatchToProps = dispatch => ({
-  attemptGetChapter: (chapterId) => dispatch(Creators.getChapterRequest(chapterId))
+  attemptGetChapter: (chapterId) => dispatch(Creators.getChapterRequest(chapterId)),
+  attemptGetChapter: chapter => dispatch(Creators.getChapterRequest(chapter))
 })
 export default connect(mapSateToProps, mapDispatchToProps)(Chapter)
