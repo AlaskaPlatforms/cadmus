@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { SideBar, Items , Item, Container, Panel, Header, UserIcon } from './styles'
+import { SideBar, Items , Item } from './styles'
+import { connect } from 'react-redux'
+import { Creators } from '@redux/actions'
 
-export default class  UserPanel extends Component {
+class UserPanel extends Component {
   renderItem = (name, path, icon) => {
     return (
       <a href={ path }>
@@ -18,10 +20,19 @@ export default class  UserPanel extends Component {
         <SideBar>
           <Items>
             { this.renderItem('Escrever', '/new-book', 'create') }
+            { this.renderItem('Seus livros', '/books', 'library_books') }
             { this.renderItem('Livros', '/books', 'library_books') }
+            <Item onClick={ this.props.attemptLogout }>
+              <i className='material-icons'>exit_to_app</i> 
+              Sair
+            </Item>
           </Items>
         </SideBar>
       </div>
     )
   }
 }
+const mapDispatchToProps = dispatch => ({
+  attemptLogout: () => dispatch(Creators.authRemover())
+})
+export default connect(null, mapDispatchToProps)(UserPanel)

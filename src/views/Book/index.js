@@ -3,6 +3,8 @@ import { Container, Header } from './styles'
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import List, { ListItem, ListItemText } from 'material-ui/List'
+import IconButton from 'material-ui/IconButton'
+import ListItemSecondaryAction from 'material-ui/List/ListItemSecondaryAction'
 import Button from 'material-ui/Button'
 import Divider from 'material-ui/Divider'
 import { connect } from 'react-redux'
@@ -40,6 +42,14 @@ class Book extends Component {
               { book.chapters ? book.chapters.map((chapter, index) => (
                 <ListItem key={ chapter } divider button>
                   <ListItemText primary={ `Capítulo ${index + 1}`}/>
+                  <ListItemSecondaryAction>
+                      <IconButton aria-label='Edit' href={ `/book/${book._id}/chapter/${chapter}/edit` }>
+                        <i className='material-icons'>edit</i>
+                      </IconButton>
+                      <IconButton aria-label='Delete'>
+                        <i className='material-icons'>delete</i>
+                      </IconButton>
+                    </ListItemSecondaryAction>
                 </ListItem>
               )): <div>Nenhum capitulo ainda</div> }
             </List>

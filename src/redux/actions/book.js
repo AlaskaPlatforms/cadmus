@@ -13,7 +13,11 @@ const bookActions = {
 
   addChapterRequest: ['chapter', 'history'],
   addChapterSuccess: null,
-  addChapterFailure: ['error']
+  addChapterFailure: ['error'],
+
+  getChapterRequest: ['chapterId'],
+  getChapterSuccess: ['chapter'],
+  getChapterFailure: ['error']
 }
 
 export default bookActions

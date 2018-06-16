@@ -14,6 +14,9 @@ const create = (baseURL = config.apiURL) => {
   const getBooks = ({ userId }) => api.get(`api/v1/books/${userId}`, {})
   const getBook = ({ book }) => api.get(`api/v1/book/${book}`, {})
   const addChapter = ({ chapter: { index, text, bookId } }) => api.post('api/v1/chapter', { index, text, bookId })
+  const deleteChapter = ({ chapterId }) => api.delete(`api/v1/chapter/${chapterId}`, {})
+  const updateChapter = ({ chapter: { text, chapterId } }) => api.put(`api/v1/chapter/${chapterId}`, { text })
+  const getChapter = ({ chapterId }) => api.get(`api/v1/chapter/${chapterId}`, {})
   const registerUser = ({ email, username, password }) => api.post(`api/v1/signup`, { email, username, password })
   return {
     checkApiStatus,
@@ -22,6 +25,9 @@ const create = (baseURL = config.apiURL) => {
     getBooks,
     getBook,
     addChapter,
+    deleteChapter,
+    updateChapter,
+    getChapter,
     registerUser
   }
 }

@@ -45,7 +45,6 @@ export function* getBook (api, { book }) {
 }
 
 export function* addChapter (api, { chapter, history }) {
-  console.log(chapter)
   try {
     const { data, ok } = yield call(api.addChapter, { chapter })
     if (ok) {
@@ -57,5 +56,19 @@ export function* addChapter (api, { chapter, history }) {
     }
   } catch (error) {
     yield put(Creators.addChapterFailure(error))
+  }
+}
+
+export function* getChapter (api, { chapterId }) {
+  try {
+    const { data, ok } = yield call(api.getChapter, { chapterId })
+    if (ok) {
+      yield put(Creators.getChapterSuccess(data))
+    } else {
+      const { error } = data
+      yield put(Creators.getChapterFailure(error))
+    }
+  } catch (error) {
+    yield put(Creators.getChapterFailure(error))
   }
 }

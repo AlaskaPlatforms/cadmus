@@ -12,6 +12,7 @@ import CreateBook from '@views/CreateBook'
 import Books from '@views/Books'
 import Book from '@views/Book'
 import Chapter from '@views/Chapter'
+import EditChapter from '@views/EditChapter'
 
 class Routes extends Component {
   render () {
@@ -26,6 +27,7 @@ class Routes extends Component {
             <PrivateRoute authed={ isAuthed } path='/books' component={ Books } />
             <PrivateRoute exact authed={ isAuthed } path='/book/:book' component={ Book } />
             <PrivateRoute exact authed={ isAuthed } path='/book/:bookId/chapter' component={ Chapter } />
+            <PrivateRoute exact authed={ isAuthed } path='/book/:bookId/chapter/:chapterId/edit' component={ EditChapter } />
           </Switch>
         </div>
       </Router>
