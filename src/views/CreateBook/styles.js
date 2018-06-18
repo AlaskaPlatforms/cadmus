@@ -15,8 +15,9 @@ export const Header = styled.h1`
   margin: 0;
 `
 export const Container = styled.div`
-  margin-left: 250px;
-  background-color: ${WHITE};
+  margin-left: ${props => props.active ? '250px' : '60px'};
+  background-color: ${COLORS.WHITE};
+  transition: .3s ease;
 `
 export const ButtonContainer = styled.div`
   display: inline-block;

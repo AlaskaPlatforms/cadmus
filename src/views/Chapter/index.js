@@ -56,10 +56,11 @@ class Chapter extends Component {
 
   render () {
     const { index, text, errorText, errorIndex } = this.state
+    const { isLarge } = this.props
     return (
       <div>
         <Sidebar/>
-        <Container>
+        <Container active={ isLarge }>
           <Header>Escrevendo capítulo...</Header>
           <InnerContainer>
           <Grid container spacing={ 24 }> 
@@ -99,11 +100,15 @@ class Chapter extends Component {
     )
   }
 }
-const mapSateToProps = ({ user, book }) => ({
+
+const mapSateToProps = ({ user, book, sidebar }) => ({
   user: user,
-  book: book.book
+  book: book.book,
+  isLarge: sidebar.isLarge
 })
+
 const mapDispatchToProps = dispatch => ({
   attemptAddChapter: (chapter, history) => dispatch(Creators.addChapterRequest(chapter, history))
 })
+
 export default connect(mapSateToProps, mapDispatchToProps)(Chapter)

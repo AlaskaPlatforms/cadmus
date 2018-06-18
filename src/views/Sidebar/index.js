@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
-import { SideBar, Items , Item } from './styles'
+import { SideBar, Items , Item, Menu } from './styles'
 import { connect } from 'react-redux'
+
 import { Creators } from '@redux/actions'
+
+import IconButton from 'material-ui/IconButton'
+
 
 class UserPanel extends Component {
   renderItem = (name, path, icon) => {
@@ -14,17 +18,31 @@ class UserPanel extends Component {
       </a>
     )
   }
+
+  handleSidebar = () => {
+    const { isLarge } = this.props
+    console.log(isLarge)
+    this.props.changeSidebar(!isLarge)
+  }
+
   render(){
+    const { isLarge } = this.props
     return (
       <div>
-        <SideBar>
+        <SideBar active={ isLarge }>
+          <IconButton onClick={ this.handleSidebar }>
+            <Menu>
+              <i className='material-icons'>menu</i>
+            </Menu>
+          </IconButton>
           <Items>
-            { this.renderItem('Escrever', '/new-book', 'create') }
-            { this.renderItem('Seus livros', '/your-books', 'local_library') }
-            { this.renderItem('Livros', '/books', 'library_books') }
+            { this.renderItem(isLarge ? 'Escrever' : '', '/new-book', 'create') }
+            { this.renderItem(isLarge ? 'Livros' : '', '/books', 'library_books') }
+            { this.renderItem(isLarge ? 'Seus livros' : '', '/your-books', 'local_library') }
+            { this.renderItem(isLarge ? 'Livros' : '', '/books', 'library_books') }
             <Item onClick={ this.props.attemptLogout }>
               <i className='material-icons'>exit_to_app</i> 
-              Sair
+              { isLarge ? 'Sair' : '' }
             </Item>
           </Items>
         </SideBar>
@@ -32,7 +50,12 @@ class UserPanel extends Component {
     )
   }
 }
-const mapDispatchToProps = dispatch => ({
-  attemptLogout: () => dispatch(Creators.authRemover())
+const mapStateToProps = ({ sidebar }) => ({
+  isLarge: sidebar.isLarge
 })
-export default connect(null, mapDispatchToProps)(UserPanel)
+const mapDispatchToProps = dispatch => ({
+  attemptLogout: () => dispatch(Creators.authRemover()),
+  changeSidebar: newState => dispatch(Creators.changeSidebar(newState))
+})
+export default connect(mapStateToProps, mapDispatchToProps)(UserPanel)
+

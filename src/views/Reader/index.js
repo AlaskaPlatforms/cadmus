@@ -51,13 +51,13 @@ class Reader extends Component {
   }
 
   render () {
-    const { chapter, book } = this.props
+    const { chapter, book, isLarge } = this.props
     const { hasNext, hasPrevious } = this.state
     if (book && chapter.index) {
       return (
         <div>
           <Sidebar/>
-          <Container>
+          <Container active={ isLarge }>
             <Header>{ book.title }</Header>
             <Title>{ `Capítulo ${chapter.index}` }</Title>
             <ChapterWrapper>{ chapter.text }</ChapterWrapper>
@@ -74,9 +74,10 @@ class Reader extends Component {
   }
 }
 
-const mapSateToProps = ({ book }) => ({
+const mapSateToProps = ({ book, sidebar }) => ({
   chapter: book.chapter,
-  book: book.book
+  book: book.book,
+  isLarge: sidebar.isLarge
 })
 
 const mapDispatchToProps = dispatch => ({

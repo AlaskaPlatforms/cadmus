@@ -32,12 +32,12 @@ class Book extends Component {
   }
   
   render () {
-    const { book, user } = this.props
+    const { book, user, isLarge } = this.props
     if (book) {
       return (
         <div>
           <Sidebar/>
-          <Container>
+          <Container active={ isLarge }>
             <Header>{ book.title }</Header>
             <Paper className='paper-wrapper'>
               <Typography component="p">
@@ -76,12 +76,15 @@ class Book extends Component {
     return <div>Carregando...</div>
   }
 }
-const mapSateToProps = ({ user, book }) => ({
-  user: user.user,
-  book: book.book
+const mapSateToProps = ({ user, book, sidebar }) => ({
+  user: user,
+  book: book.book,
+  isLarge: sidebar.isLarge
 })
+
 const mapDispatchToProps = dispatch => ({
   attemptGetBook: book => dispatch(Creators.getBookRequest(book)),
   attemptDeleteChapter: (chapter, history) => dispatch(Creators.deleteChapterRequest(chapter, history))
 })
+
 export default connect(mapSateToProps, mapDispatchToProps)(Book)
