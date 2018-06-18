@@ -4,7 +4,6 @@ import { withRouter } from 'react-router'
 
 import { Creators } from '@redux/actions'
 
-import Grid from 'material-ui/Grid'
 import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button'
 import {
@@ -15,7 +14,6 @@ import {
 import Logo from '@utils/icons/Logo'
 import LogoFull from '@utils/icons/LogoFull'
 
-import COLORS from '@assets/theme/colors'
 import {
   Container,
   InnerContainer,
@@ -26,8 +24,6 @@ import {
   RegisterFormContainer
 } from './styles'
 import './styles.scss'
-
-const { BACKGROUND } = COLORS
 
 class Login extends Component {
   constructor (props) {

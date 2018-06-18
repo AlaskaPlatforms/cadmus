@@ -29,7 +29,6 @@ class Chapter extends Component {
   }
 
   handleSubmit = () => {
-    const { book } = this.props
     const { index, text } = this.state
     const { bookId } = this.props.match.params
     let valid = true
@@ -57,10 +56,11 @@ class Chapter extends Component {
 
   render () {
     const { index, text, errorText, errorIndex } = this.state
+    const { isLarge } = this.props
     return (
       <div>
         <Sidebar/>
-        <Container>
+        <Container active={ isLarge }>
           <Header>Escrevendo capítulo...</Header>
           <InnerContainer>
           <Grid container spacing={ 24 }> 
@@ -100,11 +100,15 @@ class Chapter extends Component {
     )
   }
 }
-const mapSateToProps = ({ user, book }) => ({
+
+const mapSateToProps = ({ user, book, sideBar }) => ({
   user: user,
-  book: book.book
+  book: book.book,
+  isLarge: sideBar.isLarge
 })
+
 const mapDispatchToProps = dispatch => ({
   attemptAddChapter: (chapter, history) => dispatch(Creators.addChapterRequest(chapter, history))
 })
+
 export default connect(mapSateToProps, mapDispatchToProps)(Chapter)

@@ -18,12 +18,12 @@ class Book extends Component {
   }
   
   render () {
-    const { book } = this.props
+    const { book, isLarge } = this.props
     if (book) {
       return (
         <div>
           <Sidebar/>
-          <Container>
+          <Container active={ isLarge }>
             <Header>{ book.title }</Header>
             <Paper className='paper-wrapper'>
               <Typography component="p">
@@ -50,11 +50,15 @@ class Book extends Component {
     return <div>Carregando...</div>
   }
 }
-const mapSateToProps = ({ user, book }) => ({
+
+const mapSateToProps = ({ user, book, sideBar }) => ({
   user: user,
-  book: book.book
+  book: book.book,
+  isLarge: sideBar.isLarge
 })
+
 const mapDispatchToProps = dispatch => ({
   attemptGetBook: book => dispatch(Creators.getBookRequest(book))
 })
+
 export default connect(mapSateToProps, mapDispatchToProps)(Book)

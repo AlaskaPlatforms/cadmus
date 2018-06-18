@@ -43,7 +43,7 @@ class CreateBook extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const { title, description, genre } = this.state
+    const { title, description } = this.state
     let valid = true
 
     if (title.length < 4) {
@@ -63,7 +63,7 @@ class CreateBook extends Component {
   }
 
   renderInputs () {
-    const { title, genre, description, errorTitle, errorDescription } = this.state
+    const { genre, errorTitle, errorDescription } = this.state
     return (
       <div>
         <Sidebar/>
@@ -109,17 +109,21 @@ class CreateBook extends Component {
   }
 
   render () {
+    const { isLarge } = this.props
     return (
-      <Container>
+      <Container active={ isLarge }>
         <Header>Novo livro</Header>
         {this.renderInputs()}
       </Container>
     )
   }
 }
-const mapStateToProps = ({ user }) => ({
-  user: user.user
+
+const mapStateToProps = ({ user, sideBar }) => ({
+  user: user.user,
+  isLarge: sideBar.isLarge
 })
+
 const mapDispatchToProps = dispatch => ({
   attemptAddBook: (book, history) => dispatch(Creators.addBookRequest(book, history))
 })

@@ -5,6 +5,7 @@ import Avatar from 'material-ui/Avatar'
 import { connect } from 'react-redux'
 import { Creators } from '@redux/actions'
 import Sidebar from '@views/Sidebar'
+
 import './styles.css'
 
 class Books extends Component {
@@ -14,11 +15,12 @@ class Books extends Component {
   }
 
   render () {
-    const { books } = this.props
+    const { books, isLarge } = this.props
+
     return (
       <div>
         <Sidebar/>
-        <Container>
+        <Container active={ isLarge }>
           <Header>Livros</Header>
           <List>
             { books.map(book => (
@@ -35,11 +37,15 @@ class Books extends Component {
     )
   }
 }
-const mapSateToProps = ({ user, book }) => ({
+
+const mapSateToProps = ({ user, book, sideBar }) => ({
   user: user.user,
-  books: book.books
+  books: book.books,
+  isLarge: sideBar.isLarge
 })
+
 const mapDispatchToProps = dispatch => ({
-  attemptGetBooks: userId => dispatch(Creators.getBooksRequest(userId))
+  attemptGetBooks: userId => dispatch(Creators.getBooksRequest(userId)),
 })
+
 export default connect(mapSateToProps, mapDispatchToProps)(Books)

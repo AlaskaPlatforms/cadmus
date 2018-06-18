@@ -8,7 +8,7 @@ export const Header = styled.h1`
   margin: 0;
 `
 export const Container = styled.div`
-  margin-left: 250px;
+  margin-left: ${props => props.active ? '250px' : '60px'};
   `
 export const InnerContainer = styled.div`
   padding: 15px;
