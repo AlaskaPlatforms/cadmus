@@ -1,16 +1,29 @@
 import React, { Component } from 'react'
-import { Container, Header } from './styles'
-import List, { ListItem, ListItemText } from 'material-ui/List'
-import Avatar from 'material-ui/Avatar'
 import { connect } from 'react-redux'
 import { Creators } from '@redux/actions'
+
+import List, { ListItem, ListItemText } from 'material-ui/List'
+import IconButton from 'material-ui/IconButton'
+import Tooltip from 'material-ui/Tooltip'
+import Avatar from 'material-ui/Avatar'
+import ListItemSecondaryAction from 'material-ui/List/ListItemSecondaryAction'
+
+import { Container, Header } from './styles'
+
 import Sidebar from '@views/Sidebar'
+
 import './styles.css'
 
 class Books extends Component {
   componentWillMount () {
     const { user: {_id } } = this.props
     this.props.attemptGetBooks(_id)
+  }
+
+  handleDeleteBook = (id) => {
+    const { user } = this.props
+    const book = { bookId: id, userId: user._id }
+    this.props.attemptDeleteBook(book)
   }
 
   render () {
@@ -22,12 +35,17 @@ class Books extends Component {
           <Header>Livros</Header>
           <List>
             { books.map(book => (
-              <a key={ book._id } href={ `/book/${book._id}` }>
-                <ListItem divider button>
-                  <Avatar></Avatar>
-                  <ListItemText primary={ book.title } secondary={ book.description } />
-                </ListItem>
-              </a>
+              <ListItem key={book._id} divider button onClick={ () => this.props.history.push(`/book/${book._id}`) }>
+                <Avatar></Avatar>
+                <ListItemText primary={ book.title } secondary={ book.description } />
+                <ListItemSecondaryAction>
+                  <Tooltip title="Apagar">
+                    <IconButton aria-label='Delete' onClick={ () => this.handleDeleteBook(book._id) }>
+                      <i className='material-icons'>delete</i>
+                    </IconButton>
+                  </Tooltip>
+                </ListItemSecondaryAction>
+              </ListItem>
             ))}
           </List>
         </Container>
@@ -40,6 +58,7 @@ const mapSateToProps = ({ user, book }) => ({
   books: book.books
 })
 const mapDispatchToProps = dispatch => ({
-  attemptGetBooks: userId => dispatch(Creators.getBooksRequest(userId))
+  attemptGetBooks: userId => dispatch(Creators.getBooksRequest(userId)),
+  attemptDeleteBook: (book) => dispatch(Creators.deleteBookRequest(book))
 })
 export default connect(mapSateToProps, mapDispatchToProps)(Books)

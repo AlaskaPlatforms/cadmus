@@ -19,6 +19,10 @@ const bookActions = {
   addChapterSuccess: null,
   addChapterFailure: ['error'],
 
+  deleteBookRequest: ['book'],
+  deleteBookSuccess: null,
+  deleteBookFailure: ['error'],
+
   getChapterRequest: ['chapterId'],
   getChapterSuccess: ['chapter'],
   getChapterFailure: ['error'],

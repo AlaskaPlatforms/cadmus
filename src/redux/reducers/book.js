@@ -8,6 +8,7 @@ export const INITIAL_STATE = Immutable({
   writing: false,
   fetching: false,
   updating: false,
+  removing: false,
   books: [],
   book: {},
   chapter: {}
@@ -36,6 +37,12 @@ export const getBookRequest = (state = INITIAL_STATE) => state.merge({ fetching:
 export const getBookSuccess = (state = INITIAL_STATE, { book }) => state.merge({ error: false, fetching: false, book })
 
 export const getBookFailure = (state = INITIAL_STATE, { error }) => state.merge({ error, fetching: false })
+
+export const deleteBookRequest = (state = INITIAL_STATE) => state.merge({ removing: true })
+
+export const deleteBookSuccess = (state = INITIAL_STATE) => state.merge({ error: false, removing: false })
+
+export const deleteBookFailure = (state = INITIAL_STATE, { error }) => state.merge({ error, removing: false })
 
 export const addChapterRequest = (state = INITIAL_STATE) => state.merge({ writing: true })
 
@@ -74,6 +81,9 @@ const HANDLERS = {
   [Types.GET_BOOK_REQUEST]: getBookRequest,
   [Types.GET_BOOK_SUCCESS]: getBookSuccess,
   [Types.GET_BOOK_FAILURE]: getBookFailure,
+  [Types.DELETE_BOOK_REQUEST]: deleteBookRequest,
+  [Types.DELETE_BOOK_SUCCESS]: deleteBookSuccess,
+  [Types.DELETE_BOOK_FAILURE]: deleteBookFailure,
   [Types.ADD_CHAPTER_REQUEST]: addChapterRequest,
   [Types.ADD_CHAPTER_SUCCESS]: addChapterSuccess,
   [Types.ADD_CHAPTER_FAILURE]: addChapterFailure,

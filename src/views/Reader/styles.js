@@ -18,3 +18,13 @@ export const ChapterWrapper = styled.div`
   padding: 0 15px;
   overflow-y: auto;
 `
+export const ButtonContainer = styled.div`
+  display: inline-block;
+  width: 100%;
+  .btn-right {
+    display: ${props => props.hasNext ? 'block' : 'none'};
+  }
+  .btn-left {
+    display: ${props => props.hasPrevious ? 'block' : 'none'};
+  }
+`

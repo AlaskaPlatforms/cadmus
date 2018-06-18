@@ -67,6 +67,24 @@ export function* getBook (api, { book }) {
   }
 }
 
+export function* deleteBook (api, { book: { bookId, userId } }) {
+  try {
+    const { data, ok } = yield call(api.deleteBook, { bookId })
+    if (ok) {
+      yield put(Creators.deleteBookSuccess())
+      yield put(Creators.getBooksRequest(userId))
+      yield put(Creators.openSnackbar('Livro apagado com sucesso!'))
+    } else {
+      const { error } = data
+      yield put(Creators.deleteBookFailure(error))
+      yield put(Creators.openSnackbarError('Erro ao apagar livro!'))
+    }
+  } catch (error) {
+    yield put(Creators.deleteBookFailure(error))
+    yield put(Creators.openSnackbarError('Erro ao apagar livro!'))
+  }
+}
+
 export function* addChapter (api, { chapter, history }) {
   try {
     const { data, ok } = yield call(api.addChapter, { chapter })

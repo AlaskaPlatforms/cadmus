@@ -46,7 +46,7 @@ class Book extends Component {
             </Paper>
             <Paper className='paper-wrapper'>
               <Typography variant='headline' component='h3'>Capítulos
-                <Button color='primary' className='btn-chapter' href={ `/book/${book._id}/chapter` }>Adicionar capítulo</Button>
+                <Button style={{ display: user._id === book.userId ? 'block' : 'none' }} color='primary' className='btn-chapter' href={ `/book/${book._id}/chapter` }>Adicionar capítulo</Button>
               </Typography>
             </Paper>
             <Divider/>
@@ -67,7 +67,7 @@ class Book extends Component {
                     </Tooltip>
                     </ListItemSecondaryAction>
                 </ListItem>
-              )): <div>Nenhum capitulo ainda</div> }
+              )): <div>Nenhum capítulo ainda</div> }
             </List>
           </Container>
         </div>

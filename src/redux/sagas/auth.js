@@ -9,7 +9,7 @@ export function* authUser (api, { email, password, history }) {
       yield put(Creators.authSuccess({ token, parsedUser }))
       yield put(Creators.storeUserInfo(parsedUser))
       yield put(Creators.openSnackbar(`Bem-vindo ${parsedUser.username}!`))
-      history.push('/new-book')
+      history.push('/books')
     } else {
       yield put(Creators.authFailure('Falha ao autenticar'))
       yield put(Creators.openSnackbarError(`Falha ao autenticar`))
