@@ -13,6 +13,7 @@ import Books from '@views/Books'
 import Book from '@views/Book'
 import Chapter from '@views/Chapter'
 import EditChapter from '@views/EditChapter'
+import Snackbar from '@components/Snackbar'
 
 class Routes extends Component {
   render () {
@@ -29,6 +30,7 @@ class Routes extends Component {
             <PrivateRoute exact authed={ isAuthed } path='/book/:bookId/chapter' component={ Chapter } />
             <PrivateRoute exact authed={ isAuthed } path='/book/:bookId/chapter/:chapterId/edit' component={ EditChapter } />
           </Switch>
+          <Snackbar/>
         </div>
       </Router>
     )
@@ -38,5 +40,4 @@ class Routes extends Component {
 const mapStateToProps = ({ auth }) => ({
   isAuthed: auth.authenticated
 })
-
 export default connect(mapStateToProps)(Routes)

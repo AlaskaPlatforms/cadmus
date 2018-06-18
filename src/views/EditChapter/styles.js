@@ -43,3 +43,7 @@ export const ButtonContainer = styled.div`
   display: inline-block;
   width: 100%;
 `
+export const ErrorLabel = styled.span`
+  color: #f44242;
+  display: ${props => props.error ? 'block' : 'none' };
+`

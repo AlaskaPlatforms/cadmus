@@ -19,7 +19,7 @@ const bookActions = {
   getChapterSuccess: ['chapter'],
   getChapterFailure: ['error'],
 
-  updateChapterRequest: ['chapter'],
+  updateChapterRequest: ['chapter', 'history'],
   updateChapterSuccess: null,
   updateChapterFailure: ['error']
 }

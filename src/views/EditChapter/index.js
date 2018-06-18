@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Header, InnerContainer, TextArea, ButtonContainer } from './styles'
+import { Container, Header, InnerContainer, TextArea, ButtonContainer, ErrorLabel } from './styles'
 import Button from 'material-ui/Button'
 import TextField from 'material-ui/TextField'
 import Grid from 'material-ui/Grid'
@@ -42,8 +42,9 @@ class Chapter extends Component {
   }
 
   handleSubmit = () => {
-    const { index, text } = this.state
+    const { text } = this.state
     const { params: { chapterId } } = this.props.match
+    const { bookId } = this.props.chapter
     let valid = true
 
     if (text.length < 50) {
@@ -52,11 +53,8 @@ class Chapter extends Component {
     }
 
     if (valid) {
-      const newChapter = {
-        chapterId,
-        text: text
-      }
-      this.props.attemptUpdateChapter(newChapter)
+      const newChapter = { chapterId, text, bookId }
+      this.props.attemptUpdateChapter(newChapter, this.props.history)
     }
 
   }
@@ -95,6 +93,7 @@ class Chapter extends Component {
                   onChange={ this.handleInputChange }  
                 >
                 </TextArea>
+                <ErrorLabel error={ errorText }>Deve conter no minimo 50 caracteres</ErrorLabel>
               </Grid>
             </Grid>
             <ButtonContainer>
@@ -112,7 +111,7 @@ const mapSateToProps = ({ user, book }) => ({
   chapter: book.chapter
 })
 const mapDispatchToProps = dispatch => ({
-  attemptGetChapter: (chapterId) => dispatch(Creators.getChapterRequest(chapterId)),
-  attemptGetChapter: chapter => dispatch(Creators.getChapterRequest(chapter))
+  attemptGetChapter: chapterId => dispatch(Creators.getChapterRequest(chapterId)),
+  attemptUpdateChapter: (chapter, history) => dispatch(Creators.updateChapterRequest(chapter, history))
 })
 export default connect(mapSateToProps, mapDispatchToProps)(Chapter)
