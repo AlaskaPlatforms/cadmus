@@ -14,7 +14,7 @@ class Books extends Component {
   }
 
   render () {
-    const { books, user } = this.props
+    const { books } = this.props
     return (
       <div>
         <Sidebar/>

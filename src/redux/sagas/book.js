@@ -35,6 +35,22 @@ export function* getBooks (api, { userId }) {
   }
 }
 
+export function* getAllBooks (api) {
+  try {
+    const { data, ok } = yield call(api.getAllBooks, {})
+    if (ok) {
+      yield put(Creators.getAllBooksSuccess(data))
+    } else {
+      const { error } = data
+      yield put(Creators.getAllBooksFailure(error))
+      yield put(Creators.openSnackbarError('Erro ao buscar livros!'))
+    }
+  } catch (error) {
+    yield put(Creators.getAllBooksFailure(error))
+    yield put(Creators.openSnackbarError('Erro ao buscar livros!'))
+  }
+}
+
 export function* getBook (api, { book }) {
   try {
     const { data, ok } = yield call(api.getBook, { book })

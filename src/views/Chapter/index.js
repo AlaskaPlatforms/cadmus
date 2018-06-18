@@ -29,7 +29,6 @@ class Chapter extends Component {
   }
 
   handleSubmit = () => {
-    const { book } = this.props
     const { index, text } = this.state
     const { bookId } = this.props.match.params
     let valid = true

@@ -37,7 +37,7 @@ class CreateBook extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const { title, description, genre } = this.state
+    const { title, description } = this.state
     let valid = true
 
     if (title.length < 4) {
@@ -57,7 +57,7 @@ class CreateBook extends Component {
   }
 
   renderInputs () {
-    const { title, genre, description, errorTitle, errorDescription } = this.state
+    const { genre, errorTitle, errorDescription } = this.state
     return (
       <div>
         <Sidebar/>

@@ -25,6 +25,12 @@ export const getBooksSuccess = (state = INITIAL_STATE, { books }) => state.merge
 
 export const getBooksFailure = (state = INITIAL_STATE, { error }) => state.merge({ error, fetching: false })
 
+export const getAllBooksRequest = (state = INITIAL_STATE) => state.merge({ fetching: true })
+
+export const getAllBooksSuccess = (state = INITIAL_STATE, { books }) => state.merge({ error: false, fetching: false, books })
+
+export const getAllBooksFailure = (state = INITIAL_STATE, { error }) => state.merge({ error, fetching: false })
+
 export const getBookRequest = (state = INITIAL_STATE) => state.merge({ fetching: true })
 
 export const getBookSuccess = (state = INITIAL_STATE, { book }) => state.merge({ error: false, fetching: false, book })
@@ -62,6 +68,9 @@ const HANDLERS = {
   [Types.GET_BOOKS_REQUEST]: getBooksRequest,
   [Types.GET_BOOKS_SUCCESS]: getBooksSuccess,
   [Types.GET_BOOKS_FAILURE]: getBooksFailure,
+  [Types.GET_ALL_BOOKS_REQUEST]: getAllBooksRequest,
+  [Types.GET_ALL_BOOKS_SUCCESS]: getAllBooksSuccess,
+  [Types.GET_ALL_BOOKS_FAILURE]: getAllBooksFailure,
   [Types.GET_BOOK_REQUEST]: getBookRequest,
   [Types.GET_BOOK_SUCCESS]: getBookSuccess,
   [Types.GET_BOOK_FAILURE]: getBookFailure,

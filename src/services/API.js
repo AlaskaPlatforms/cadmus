@@ -12,6 +12,7 @@ const create = (baseURL = config.apiURL) => {
   const authUser = ({ email, password }) => api.post(`api/v1/auth`, { email, password }).then(response => response)
   const addBook = ({ book: { title, description, userId } }) => api.post(`api/v1/book`, { title, description, userId })
   const getBooks = ({ userId }) => api.get(`api/v1/books/${userId}`, {})
+  const getAllBooks = ({ userId }) => api.get('api/v1/book', {})
   const getBook = ({ book }) => api.get(`api/v1/book/${book}`, {})
   const addChapter = ({ chapter: { index, text, bookId } }) => api.post('api/v1/chapter', { index, text, bookId })
   const deleteChapter = ({ chapterId }) => api.delete(`api/v1/chapter/${chapterId}`, {})
@@ -23,6 +24,7 @@ const create = (baseURL = config.apiURL) => {
     authUser,
     addBook,
     getBooks,
+    getAllBooks,
     getBook,
     addChapter,
     deleteChapter,

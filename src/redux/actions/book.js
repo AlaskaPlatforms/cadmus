@@ -6,6 +6,10 @@ const bookActions = {
   getBooksRequest: ['userId'],
   getBooksSuccess: ['books'],
   getBooksFailure: ['error'],
+
+  getAllBooksRequest: null,
+  getAllBooksSuccess: ['books'],
+  getAllBooksFailure: ['error'],
   
   getBookRequest: ['book'],
   getBookSuccess: ['book'],
