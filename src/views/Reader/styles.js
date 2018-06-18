@@ -17,7 +17,11 @@ export const Title = styled.h1`
 `
 export const ChapterWrapper = styled.div`
   padding: 0 15px;
+  text-align: justify;
   overflow-y: auto;
+  @media (min-width: 640px) {
+    padding: 0 50px;
+  }
 `
 export const ButtonContainer = styled.div`
   display: inline-block;

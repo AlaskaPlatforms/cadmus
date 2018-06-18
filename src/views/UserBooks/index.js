@@ -27,11 +27,11 @@ class Books extends Component {
   }
 
   render () {
-    const { books } = this.props
+    const { books, isLarge } = this.props
     return (
       <div>
         <Sidebar/>
-        <Container>
+        <Container active={ isLarge }>
           <Header>Livros</Header>
           <List>
             { books.map(book => (
@@ -53,9 +53,10 @@ class Books extends Component {
     )
   }
 }
-const mapSateToProps = ({ user, book }) => ({
+const mapSateToProps = ({ user, book, sidebar }) => ({
   user: user.user,
-  books: book.books
+  books: book.books,
+  isLarge: sidebar.isLarge
 })
 const mapDispatchToProps = dispatch => ({
   attemptGetBooks: userId => dispatch(Creators.getBooksRequest(userId)),

@@ -4,10 +4,7 @@ import { connect } from 'react-redux'
 
 import { Creators } from '@redux/actions'
 
-import IconButton from 'material-ui/IconButton'
-
-
-class UserPanel extends Component {
+class Sidebar extends Component {
   renderItem = (name, path, icon) => {
     return (
       <a href={ path }>
@@ -21,7 +18,6 @@ class UserPanel extends Component {
 
   handleSidebar = () => {
     const { isLarge } = this.props
-    console.log(isLarge)
     this.props.changeSidebar(!isLarge)
   }
 
@@ -30,11 +26,9 @@ class UserPanel extends Component {
     return (
       <div>
         <SideBar active={ isLarge }>
-          <IconButton onClick={ this.handleSidebar }>
-            <Menu>
-              <i className='material-icons'>menu</i>
-            </Menu>
-          </IconButton>
+          <Menu active={ isLarge } onClick={ this.handleSidebar }>
+            <i className='material-icons large'>{ isLarge ? 'close' : 'menu'}</i>
+          </Menu>
           <Items>
             { this.renderItem(isLarge ? 'Escrever' : '', '/new-book', 'create') }
             { this.renderItem(isLarge ? 'Livros' : '', '/books', 'library_books') }
@@ -57,5 +51,5 @@ const mapDispatchToProps = dispatch => ({
   attemptLogout: () => dispatch(Creators.authRemover()),
   changeSidebar: newState => dispatch(Creators.changeSidebar(newState))
 })
-export default connect(mapStateToProps, mapDispatchToProps)(UserPanel)
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar)
 

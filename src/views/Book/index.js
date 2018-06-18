@@ -77,7 +77,7 @@ class Book extends Component {
   }
 }
 const mapSateToProps = ({ user, book, sidebar }) => ({
-  user: user,
+  user: user.user,
   book: book.book,
   isLarge: sidebar.isLarge
 })
