@@ -20,7 +20,7 @@ class UserPanel extends Component {
         <SideBar>
           <Items>
             { this.renderItem('Escrever', '/new-book', 'create') }
-            { this.renderItem('Seus livros', '/books', 'library_books') }
+            { this.renderItem('Seus livros', '/your-books', 'local_library') }
             { this.renderItem('Livros', '/books', 'library_books') }
             <Item onClick={ this.props.attemptLogout }>
               <i className='material-icons'>exit_to_app</i> 

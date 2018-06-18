@@ -49,6 +49,12 @@ export const updateChapterSuccess = (state = INITIAL_STATE) => state.merge({ upd
 
 export const updateChapterFailure = (state = INITIAL_STATE, { error }) => state.merge({ updating: false, error })
 
+export const deleteChapterRequest = (state = INITIAL_STATE) => state.merge({ removing: true })
+
+export const deleteChapterSuccess = (state = INITIAL_STATE) => state.merge({ removing: false })
+
+export const deleteChapterFailure = (state = INITIAL_STATE, { error }) => state.merge({ removing: false, error })
+
 const HANDLERS = {
   [Types.ADD_BOOK_REQUEST]: addBookRequest,
   [Types.ADD_BOOK_SUCCESS]: addBookSuccess,
@@ -67,7 +73,10 @@ const HANDLERS = {
   [Types.GET_CHAPTER_FAILURE]: getChapterFailure,
   [Types.UPDATE_CHAPTER_REQUEST]: updateChapterRequest,
   [Types.UPDATE_CHAPTER_SUCCESS]: updateChapterSuccess,
-  [Types.UPDATE_CHAPTER_FAILURE]: updateChapterFailure
+  [Types.UPDATE_CHAPTER_FAILURE]: updateChapterFailure,
+  [Types.DELETE_CHAPTER_REQUEST]: deleteChapterRequest,
+  [Types.DELETE_CHAPTER_SUCCESS]: deleteChapterSuccess,
+  [Types.DELETE_CHAPTER_FAILURE]: deleteChapterFailure
 }
 
 export const reducer = createReducer(INITIAL_STATE, HANDLERS)

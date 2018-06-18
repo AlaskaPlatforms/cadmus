@@ -18,9 +18,15 @@ class Book extends Component {
     const { params: { book } } = this.props.match
     this.props.attemptGetBook(book) 
   }
+
+  handleDeleteChapter = (chapter) => {
+    const { params: { book } } = this.props.match
+    const newChapter = { bookId: book, chapterId: chapter }
+    this.props.attemptDeleteChapter(newChapter, this.props.history)
+  }
   
   render () {
-    const { book } = this.props
+    const { book, user } = this.props
     if (book) {
       return (
         <div>
@@ -42,11 +48,11 @@ class Book extends Component {
               { book.chapters ? book.chapters.map((chapter, index) => (
                 <ListItem key={ chapter } divider button>
                   <ListItemText primary={ `Capítulo ${index + 1}`}/>
-                  <ListItemSecondaryAction>
+                  <ListItemSecondaryAction style={{ display: user._id === book.userId ? 'block' : 'none' }}>
                       <IconButton aria-label='Edit' href={ `/book/${book._id}/chapter/${chapter}/edit` }>
                         <i className='material-icons'>edit</i>
                       </IconButton>
-                      <IconButton aria-label='Delete'>
+                      <IconButton aria-label='Delete' onClick={ () => this.handleDeleteChapter(chapter) }>
                         <i className='material-icons'>delete</i>
                       </IconButton>
                     </ListItemSecondaryAction>
@@ -61,10 +67,11 @@ class Book extends Component {
   }
 }
 const mapSateToProps = ({ user, book }) => ({
-  user: user,
+  user: user.user,
   book: book.book
 })
 const mapDispatchToProps = dispatch => ({
-  attemptGetBook: book => dispatch(Creators.getBookRequest(book))
+  attemptGetBook: book => dispatch(Creators.getBookRequest(book)),
+  attemptDeleteChapter: (chapter, history) => dispatch(Creators.deleteChapterRequest(chapter, history))
 })
 export default connect(mapSateToProps, mapDispatchToProps)(Book)

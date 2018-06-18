@@ -21,7 +21,11 @@ const bookActions = {
 
   updateChapterRequest: ['chapter', 'history'],
   updateChapterSuccess: null,
-  updateChapterFailure: ['error']
+  updateChapterFailure: ['error'],
+
+  deleteChapterRequest: ['chapter', 'history'],
+  deleteChapterSuccess: null,
+  deleteChapterFailure: ['error']
 }
 
 export default bookActions

@@ -102,3 +102,22 @@ export function* updateChapter (api, { chapter, history }) {
     yield put(Creators.openSnackbarError('Erro ao alterar capítulo!'))
   }
 }
+
+export function* deleteChapter (api, { chapter, history }) {
+  try {
+    const { chapterId, bookId } = chapter
+    const { data, ok } = yield call(api.deleteChapter, { chapterId })
+    if (ok) {
+      yield put(Creators.deleteChapterSuccess())
+      yield put(Creators.openSnackbar('Capítulo apagado com sucesso!'))
+      history.push(`/book/${bookId}`)
+    } else {
+      const { error } = data
+      yield put(Creators.deleteChapterFailure(error))
+      yield put(Creators.openSnackbarError('Erro ao apagar capítulo!'))
+    }
+  } catch (error) {
+    yield put(Creators.deleteChapterFailure(error))
+    yield put(Creators.openSnackbarError('Erro ao apagar capítulo!'))
+  }
+}
