@@ -119,9 +119,9 @@ class CreateBook extends Component {
   }
 }
 
-const mapStateToProps = ({ user, sideBar }) => ({
+const mapStateToProps = ({ user, sidebar }) => ({
   user: user.user,
-  isLarge: sideBar.isLarge
+  isLarge: sidebar.isLarge
 })
 
 const mapDispatchToProps = dispatch => ({

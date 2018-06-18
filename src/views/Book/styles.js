@@ -11,4 +11,5 @@ export const Header = styled.h1`
 export const Container = styled.div`
   margin-left: ${props => props.active ? '250px' : '60px'};
   background-color: ${COLORS.WHITE};
+  transition: .3s ease;
 `

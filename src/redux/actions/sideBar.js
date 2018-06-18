@@ -1,4 +1,5 @@
-export const setState = isLarge => ({
-  type: 'SIDEBAR_SET_STATE',
-  payload: isLarge
-})
+const sidebar = {
+  changeSidebar: null
+}
+
+export default sidebar

@@ -3,13 +3,15 @@ import { combineReducers } from 'redux'
 import auth from './auth'
 import book from './book'
 import user from './user'
-import sideBar from './sideBar'
+import snackbar from './snackbar'
+import sidebar from './sidebar'
 
 export const reducers = {
   auth,
   book,
   user,
-  sideBar
+  snackbar,
+  sidebar
 }
 
 export default combineReducers(reducers)

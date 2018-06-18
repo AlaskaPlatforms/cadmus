@@ -12,11 +12,11 @@ export const INITIAL_STATE = Immutable({
 
 export const storeUserInfo = (state = INITIAL_STATE, { user }) => Object.assign({}, state, { user })
 
-export const userRegisterRequest = (state = INITIAL_STATE, { ok }) => state.merge({ registering: true })
+export const userRegisterRequest = (state = INITIAL_STATE, { ok }) => Object.assign({}, state, { registering: true })
 
-export const userRegisterSuccess = (state = INITIAL_STATE) => state.merge({ registering: false })
+export const userRegisterSuccess = (state = INITIAL_STATE) => Object.assign({}, state, { registering: false })
 
-export const userRegisterFailure = (state = INITIAL_STATE, { error }) => state.merge({ registering: false, error })
+export const userRegisterFailure = (state = INITIAL_STATE, { error }) => Object.assign({}, state, { registering: false, error })
 
 export const unauthUser = () => INITIAL_STATE
 

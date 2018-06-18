@@ -10,8 +10,7 @@ import './styles.css'
 
 class Books extends Component {
   componentWillMount () {
-    const { user: {_id } } = this.props
-    this.props.attemptGetBooks(_id)
+    this.props.attemptGetBooks()
   }
 
   render () {
@@ -37,15 +36,14 @@ class Books extends Component {
     )
   }
 }
-
-const mapSateToProps = ({ user, book, sideBar }) => ({
+const mapSateToProps = ({ user, book, sidebar }) => ({
   user: user.user,
   books: book.books,
-  isLarge: sideBar.isLarge
+  isLarge: sidebar.isLarge
 })
 
 const mapDispatchToProps = dispatch => ({
-  attemptGetBooks: userId => dispatch(Creators.getBooksRequest(userId)),
+  attemptGetBooks: () => dispatch(Creators.getAllBooksRequest())
 })
 
 export default connect(mapSateToProps, mapDispatchToProps)(Books)

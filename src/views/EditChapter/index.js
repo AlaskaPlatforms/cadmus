@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Header, InnerContainer, TextArea, ButtonContainer } from './styles'
+import { Container, Header, InnerContainer, TextArea, ButtonContainer, ErrorLabel } from './styles'
 import Button from 'material-ui/Button'
 import TextField from 'material-ui/TextField'
 import Grid from 'material-ui/Grid'
@@ -20,6 +20,19 @@ class Chapter extends Component {
     }
   }
 
+  componentWillMount () {
+    const { params: { chapterId } } = this.props.match
+    this.props.attemptGetChapter(chapterId)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState(state => ({
+      ...state,
+      index: nextProps.chapter.index,
+      text: nextProps.chapter.text
+    }))
+  }
+
   capitalizeFirstLetter = (value) => 
     value.charAt(0).toUpperCase() + value.slice(1)
 
@@ -29,14 +42,10 @@ class Chapter extends Component {
   }
 
   handleSubmit = () => {
-    const { index, text } = this.state
-    const { bookId } = this.props.match.params
+    const { text } = this.state
+    const { params: { chapterId } } = this.props.match
+    const { bookId } = this.props.chapter
     let valid = true
-
-    if (index.length < 1) {
-      valid = false
-      this.setState(state => ({...state, errorIndex: true }))
-    }
 
     if (text.length < 50) {
       valid = false
@@ -44,19 +53,15 @@ class Chapter extends Component {
     }
 
     if (valid) {
-      const newChapter = {
-        bookId,
-        text: text,
-        index: parseInt(index)
-      }
-      this.props.attemptAddChapter(newChapter, this.props.history)
+      const newChapter = { chapterId, text, bookId }
+      this.props.attemptUpdateChapter(newChapter, this.props.history)
     }
 
   }
 
   render () {
-    const { index, text, errorText, errorIndex } = this.state
     const { isLarge } = this.props
+    const { index, text, errorText, errorIndex } = this.state
     return (
       <div>
         <Sidebar/>
@@ -70,7 +75,8 @@ class Chapter extends Component {
                   name='index'
                   value={ index }
                   label='Numero do capítulo'
-                  fullWidth 
+                  fullWidth
+                  disabled
                   onChange={ this.handleInputChange }
                   error={ errorIndex }
                   helperText={ errorIndex ? 'Obrigatório!' : '' }
@@ -88,6 +94,7 @@ class Chapter extends Component {
                   onChange={ this.handleInputChange }  
                 >
                 </TextArea>
+                <ErrorLabel error={ errorText }>Deve conter no minimo 50 caracteres</ErrorLabel>
               </Grid>
             </Grid>
             <ButtonContainer>
@@ -100,15 +107,13 @@ class Chapter extends Component {
     )
   }
 }
-
 const mapSateToProps = ({ user, book, sidebar }) => ({
   user: user,
-  book: book.book,
+  chapter: book.chapter,
   isLarge: sidebar.isLarge
 })
-
 const mapDispatchToProps = dispatch => ({
-  attemptAddChapter: (chapter, history) => dispatch(Creators.addChapterRequest(chapter, history))
+  attemptGetChapter: chapterId => dispatch(Creators.getChapterRequest(chapterId)),
+  attemptUpdateChapter: (chapter, history) => dispatch(Creators.updateChapterRequest(chapter, history))
 })
-
 export default connect(mapSateToProps, mapDispatchToProps)(Chapter)
