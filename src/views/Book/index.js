@@ -25,6 +25,11 @@ class Book extends Component {
     const newChapter = { bookId: book, chapterId: chapter }
     this.props.attemptDeleteChapter(newChapter, this.props.history)
   }
+
+  handleReadChapter = (id) => {
+    const { book: { _id } } = this.props
+    this.props.history.push(`/book/${_id}/chapter/${id}`)
+  }
   
   render () {
     const { book, user } = this.props
@@ -47,7 +52,7 @@ class Book extends Component {
             <Divider/>
             <List>
               { book.chapters ? book.chapters.map((chapter, index) => (
-                <ListItem key={ chapter } divider button>
+                <ListItem key={ chapter } divider button onClick={ () => this.handleReadChapter(chapter) }>
                   <ListItemText primary={ `Capítulo ${index + 1}`}/>
                   <ListItemSecondaryAction style={{ display: user._id === book.userId ? 'block' : 'none' }}>
                     <Tooltip title="Editar">

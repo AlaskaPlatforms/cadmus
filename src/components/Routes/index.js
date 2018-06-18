@@ -13,6 +13,7 @@ import UserBooks from '@views/UserBooks'
 import Book from '@views/Book'
 import Chapter from '@views/Chapter'
 import EditChapter from '@views/EditChapter'
+import Reader from '@views/Reader'
 import Snackbar from '@components/Snackbar'
 
 class Routes extends Component {
@@ -30,6 +31,7 @@ class Routes extends Component {
             <PrivateRoute exact authed={ isAuthed } path='/book/:book' component={ Book } />
             <PrivateRoute exact authed={ isAuthed } path='/book/:bookId/chapter' component={ Chapter } />
             <PrivateRoute exact authed={ isAuthed } path='/book/:bookId/chapter/:chapterId/edit' component={ EditChapter } />
+            <PrivateRoute exact authed={ isAuthed } path='/book/:bookId/chapter/:chapterId' component={ Reader } />
           </Switch>
           <Snackbar/>
         </div>
