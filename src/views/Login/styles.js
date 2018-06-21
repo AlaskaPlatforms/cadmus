@@ -63,7 +63,7 @@ export const LogoName = styled.div`
 `
 
 export const LogoLetter = styled.span`
-  font-family: 'Amatic SC', cursive;
+  font-family: inherit;
   font-weight: bold;
   font-size: 50px;
 

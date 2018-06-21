@@ -65,15 +65,14 @@ export default class Home extends Component {
         <H1>Seja um escritor!</H1>
         <H2>
           <span>
-            CADMUS é a maneira mais fácil de publicar suas obras<br/>
+            CADMUS é a maneira mais fácil de publicar<br/>
           </span>
           <span>
-            e descobrir novas obras!
+            e descobrir novas obras!<br/><br/>
           </span>
         </H2>
         <div>
-          <ButtonLargeWhite role="button">Leitor</ButtonLargeWhite>
-          <ButtonLargeBlue role="button" onClick = {() => this.loginClick()}>Escritor</ButtonLargeBlue>
+          <ButtonLargeBlue role="button" onClick = {() => this.loginClick()}>Começar</ButtonLargeBlue>
         </div>      
       </div>
     )
@@ -88,7 +87,7 @@ export default class Home extends Component {
             Crie novas obras.<br/>
           </span>
           <span>
-            Descubra novas obras.<br/>
+            Descubra novas obras.<br/><br/><br/>
           </span>
         </H2>      
       </div>
@@ -115,8 +114,7 @@ export default class Home extends Component {
           </HeaderCurve>
         </Header>
         <CadmusMessage>
-          { this.message() }
-          <CadmusMessageImg src='https://raw.githubusercontent.com/AlaskaPlatforms/cadmus/feature/login/src/assets/img/logo-full.png' alt="pagina da web que mostra como publicar obras" />
+          { this.message() }          
         </CadmusMessage>
         <Footer>
           <FooterNav className='clearfix'>

@@ -69,7 +69,7 @@ class CreateBook extends Component {
         <Sidebar/>
         <Form onSubmit={ this.handleSubmit }>
           <Grid container spacing={ 24 }>
-            <Grid item xs={ 12 } lg={ 8 }>
+            <Grid item xs={ 12 }>
               <TextField
                 name='title'
                 error={ errorTitle }
@@ -78,12 +78,6 @@ class CreateBook extends Component {
                 onChange={ this.handleInputChange }
                 helperText={ errorTitle ? 'Obrigatório! Minímo 4 caracteres' : ''}
                 />
-            </Grid>
-            <Grid item xs={ 12 } lg={ 4 } className='select-padding'>
-              <Select name='genre' label='Gênero' onChange={ this.handleInputChange } fullWidth value={ genre }>
-                <MenuItem value='0'>Selecione uma opção</MenuItem>
-                <MenuItem value='1'>Terror</MenuItem>
-              </Select>
             </Grid>
           </Grid>
           <Grid container spacing={ 24 }>

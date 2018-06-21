@@ -149,6 +149,9 @@ export const ButtonLargeBlue = styled.div`
   transition: box-shadow .3s;
   margin-left: 40px;
   cursor: pointer;
+  &:hover {
+    background-color: #333;
+  }
 `
 
 export const H1 = styled.h1 `
