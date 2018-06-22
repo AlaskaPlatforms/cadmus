@@ -6,8 +6,7 @@ import { Creators } from '@redux/actions'
 
 class SnackbarComponent extends Component {
   render () {
-    const { open, message, error } = this.props
-    const color = error ? '#f44242' : '#5fbf63'
+    const { open, message, color } = this.props
     return (
       <Snackbar
         anchorOrigin={{
@@ -26,7 +25,8 @@ class SnackbarComponent extends Component {
 const mapStateToProps = ({ snackbar }) => ({
   open: snackbar.open,
   message: snackbar.message,
-  error: snackbar.error
+  error: snackbar.error,
+  color: snackbar.color
 })
 const mapDispatchToProps = dispatch => ({
   closeSnackbar: () => dispatch(Creators.closeSnackbar())

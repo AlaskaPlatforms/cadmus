@@ -7,12 +7,13 @@ import { Types } from './../actions'
 export const INITIAL_STATE = Immutable({
   open: false,
   message: '',
-  error: false
+  error: false,
+  color: ''
 })
 
-export const openSnackbar = (state = INITIAL_STATE, { message }) => Object.assign({}, state, { open: true, error: false, message })
+export const openSnackbar = (state = INITIAL_STATE, { message }) => Object.assign({}, state, { open: true, error: false, message, color: '#5fbf63' })
 
-export const openSnackbarError = (state = INITIAL_STATE, { message }) => Object.assign({}, state, { open: true, error: true, message })
+export const openSnackbarError = (state = INITIAL_STATE, { message }) => Object.assign({}, state, { open: true, error: true, message, color: '#f44242' })
 
 export const closeSnackbar = (state = INITIAL_STATE) => Object.assign({}, state, { open: false, error: false })
 
