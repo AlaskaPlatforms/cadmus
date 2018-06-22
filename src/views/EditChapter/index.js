@@ -66,7 +66,7 @@ class Chapter extends Component {
       <div>
         <Sidebar/>
         <Container active={ isLarge }>
-          <Header>Escrevendo capítulo...</Header>
+          <Header>Editando capítulo...</Header>
           <InnerContainer>
           <Grid container spacing={ 24 }> 
               <Grid item xs={ 12 }>
