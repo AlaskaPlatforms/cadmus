@@ -11,6 +11,7 @@ import Tooltip from 'material-ui/Tooltip'
 import { connect } from 'react-redux'
 import { Creators } from '@redux/actions'
 import Sidebar from '@views/Sidebar'
+import Grid from 'material-ui/Grid'
 
 import './styles.css'
 
@@ -44,17 +45,23 @@ class Book extends Component {
                 { book.description }
               </Typography>
             </Paper>
-            <Paper className='paper-wrapper'>
-              <Typography variant='headline' component='h3'>Capítulos
-                <Button style={{ display: user._id === book.userId ? 'block' : 'none' }} color='primary' className='btn-chapter' href={ `/book/${book._id}/chapter` }>Adicionar capítulo</Button>
-              </Typography>
-            </Paper>
+            <Grid container> 
+              <Grid item xs={ 12 } lg={ 8 }> 
+                <Paper className='paper-wrapper'>
+                  <Typography variant='headline' component='h3'>Capítulos
+                  </Typography>
+                </Paper>
+              </Grid>
+              <Grid item xs={ 12 } lg={ 4 }> 
+                <Button style={{ display: user._id === book.userId ? 'block' : 'none', float: 'right' }} color='primary' className='btn-chapter' href={ `/book/${book._id}/chapter` }>Adicionar capítulo</Button>
+              </Grid>
+            </Grid>
             <Divider/>
             <List>
               { book.chapters ? book.chapters.map((chapter, index) => (
                 <ListItem key={ chapter } divider button onClick={ () => this.handleReadChapter(chapter) }>
                   <ListItemText primary={ `Capítulo ${index + 1}`}/>
-                  <ListItemSecondaryAction style={{ display: user._id === book.userId ? 'inline-block' : 'none', borderBottom: '1px solid rgba(0, 0, 0, 0.18)' }}>
+                  <ListItemSecondaryAction style={{ display: user._id === book.userId ? 'inline-block' : 'none', maxHeight: '47px' }}>
                     <Tooltip title="Editar">
                       <IconButton aria-label='Edit' href={ `/book/${book._id}/chapter/${chapter}/edit` }>
                         <i className='material-icons'>edit</i>
