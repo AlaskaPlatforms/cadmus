@@ -54,7 +54,7 @@ class Book extends Component {
               { book.chapters ? book.chapters.map((chapter, index) => (
                 <ListItem key={ chapter } divider button onClick={ () => this.handleReadChapter(chapter) }>
                   <ListItemText primary={ `Capítulo ${index + 1}`}/>
-                  <ListItemSecondaryAction style={{ display: user._id === book.userId ? 'block' : 'none' }}>
+                  <ListItemSecondaryAction style={{ display: user._id === book.userId ? 'inline-block' : 'none', borderBottom: '1px solid rgba(0, 0, 0, 0.18)' }}>
                     <Tooltip title="Editar">
                       <IconButton aria-label='Edit' href={ `/book/${book._id}/chapter/${chapter}/edit` }>
                         <i className='material-icons'>edit</i>
