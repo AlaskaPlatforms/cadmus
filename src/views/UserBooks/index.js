@@ -32,11 +32,13 @@ class Books extends Component {
       <div>
         <Sidebar/>
         <Container active={ isLarge }>
-          <Header>Livros</Header>
+          <Header>Seus livros</Header>
           <List>
             { books.map(book => (
               <ListItem key={book._id} divider button onClick={ () => this.props.history.push(`/book/${book._id}`) }>
-                <Avatar></Avatar>
+                <Avatar>
+                  <i className='material-icons'>book</i>
+                </Avatar>
                 <ListItemText primary={ book.title } secondary={ book.description } />
                 <ListItemSecondaryAction>
                   <Tooltip title="Apagar">

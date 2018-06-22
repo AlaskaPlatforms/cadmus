@@ -27,6 +27,7 @@ class Sidebar extends Component {
       <div>
         <SideBar active={ isLarge }>
           <Menu active={ isLarge } onClick={ this.handleSidebar }>
+            <h3>{ isLarge ? 'CADMUS' : ''}</h3>
             <i className='material-icons large'>{ isLarge ? 'close' : 'menu'}</i>
           </Menu>
           <Items>

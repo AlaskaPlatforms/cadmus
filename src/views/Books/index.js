@@ -25,7 +25,9 @@ class Books extends Component {
             { books.map(book => (
               <a key={ book._id } href={ `/book/${book._id}` }>
                 <ListItem divider button>
-                  <Avatar></Avatar>
+                  <Avatar>
+                    <i className='material-icons'>book</i>
+                  </Avatar>
                   <ListItemText primary={ book.title } secondary={ book.description } />
                 </ListItem>
               </a>
