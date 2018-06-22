@@ -11,7 +11,7 @@ import { reducers } from './../reducers'
 const config = {
   key: 'root',
   storage,
-  whitelist: ['user', 'auth'],
+  whitelist: ['user', 'auth', 'sidebar'],
   blacklist: []
 }
 

@@ -58,13 +58,15 @@ class Reader extends Component {
         <div>
           <Sidebar/>
           <Container active={ isLarge }>
-            <Header>{ book.title }</Header>
+            <Header active={ isLarge }>{ book.title }</Header>
             <Title>{ `Capítulo ${chapter.index}` }</Title>
-            <ChapterWrapper>{ chapter.text }</ChapterWrapper>
-            <ButtonContainer hasNext={ hasNext } hasPrevious={ hasPrevious }>
-              <Button type='submit' className='btn-left' variant='flat' onClick={ this.handlePreviousBook }>Anterior</Button>
-              <Button type='submit' className='btn-right' variant='flat' onClick={ this.handleNextBook }>Proximo</Button>
-            </ButtonContainer>
+            <div>
+              <ChapterWrapper>{ chapter.text }</ChapterWrapper>
+              <ButtonContainer hasNext={ hasNext } hasPrevious={ hasPrevious }>
+                <Button type='submit' className='btn-left' variant='flat' onClick={ this.handlePreviousBook }>Anterior</Button>
+                <Button type='submit' className='btn-right' variant='flat' onClick={ this.handleNextBook }>Proximo</Button>
+              </ButtonContainer>
+            </div>
           </Container>
         </div>
       )

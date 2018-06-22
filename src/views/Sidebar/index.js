@@ -27,13 +27,13 @@ class Sidebar extends Component {
       <div>
         <SideBar active={ isLarge }>
           <Menu active={ isLarge } onClick={ this.handleSidebar }>
+            <h3>{ isLarge ? 'CADMUS' : ''}</h3>
             <i className='material-icons large'>{ isLarge ? 'close' : 'menu'}</i>
           </Menu>
           <Items>
             { this.renderItem(isLarge ? 'Escrever' : '', '/new-book', 'create') }
             { this.renderItem(isLarge ? 'Livros' : '', '/books', 'library_books') }
             { this.renderItem(isLarge ? 'Seus livros' : '', '/your-books', 'local_library') }
-            { this.renderItem(isLarge ? 'Livros' : '', '/books', 'library_books') }
             <Item onClick={ this.props.attemptLogout }>
               <i className='material-icons'>exit_to_app</i> 
               { isLarge ? 'Sair' : '' }

@@ -57,4 +57,14 @@ export const Menu = styled.div`
     font-size: 35px !important;
   }
   transition: .3s ease;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  h3 { 
+    flex: 1; 
+    align-items: flex-start;
+    margin: 4px;
+    transition: .3s ease;
+    text-overflow: hidden;
+  }
 `

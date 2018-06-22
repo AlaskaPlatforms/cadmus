@@ -66,7 +66,7 @@ class Chapter extends Component {
       <div>
         <Sidebar/>
         <Container active={ isLarge }>
-          <Header>Escrevendo capítulo...</Header>
+          <Header>Editando capítulo...</Header>
           <InnerContainer>
           <Grid container spacing={ 24 }> 
               <Grid item xs={ 12 }>
@@ -99,7 +99,7 @@ class Chapter extends Component {
             </Grid>
             <ButtonContainer>
               <Button type='submit' className='btn-custom' variant='flat' onClick={ this.handleSubmit }>Salvar</Button>
-              <Button className='btn-custom' variant='flat'>Cancelar</Button>
+              <Button className='btn-custom' variant='flat' onClick= { () => this.props.history.goBack() }>Cancelar</Button>
           </ButtonContainer>
           </InnerContainer>
         </Container>
