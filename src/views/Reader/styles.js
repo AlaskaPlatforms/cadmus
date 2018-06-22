@@ -12,7 +12,7 @@ export const Header = styled.h1`
   left: ${props => props.active ? '250px' : '60px'};
   transition: .3s ease;
   font-size: 20px;
-  min-height: 50px;
+  min-height: 35px;
   @media (min-width: 640px) {
     font-size: 2em;
   }
