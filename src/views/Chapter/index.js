@@ -92,7 +92,7 @@ class Chapter extends Component {
             </Grid>
             <ButtonContainer>
               <Button type='submit' className='btn-custom' variant='flat' onClick={ this.handleSubmit }>Salvar</Button>
-              <Button className='btn-custom' variant='flat'>Cancelar</Button>
+              <Button className='btn-custom' variant='flat' onClick={ () => this.props.history.goBack() }>Cancelar</Button>
           </ButtonContainer>
           </InnerContainer>
         </Container>
